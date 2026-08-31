@@ -1,0 +1,11 @@
+{
+ "contentHash": "sha256:33ef8453c3710f5f2f72112f6ea7fd5891725e1d85fac735815c684dd507c5f0",
+ "features": [
+  "core-executable"
+ ],
+ "name": "ru.dal.poslovitsy",
+ "namespace": "urn:ru:dal:clir:poslovitsy",
+ "registryId": "arxo",
+ "resolverUri": "registry://arxo/ru.dal.poslovitsy/0.1.0",
+ "version": "0.1.0"
+}

@@ -1,0 +1,8 @@
+{
+ "layout": {
+  "descriptor": "p/<name>/<version>.json",
+  "package": "p/<name>/<version>/package.lawir.json"
+ },
+ "registryId": "arxo",
+ "specVersion": "0.1"
+}
