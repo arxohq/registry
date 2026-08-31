@@ -1,0 +1,11 @@
+# Подсветка .law на github.com: своей грамматики Linguist пока не имеет,
+# Kotlin выбран по максимальному пересечению поверхности (// и /* */,
+# package/import, типы через двоеточие в сигнатурах, when/for/const/enum/
+# external/internal/public). linguist-detectable=false — чтобы статистика
+# языков репозитория не врала «Kotlin». Настоящая грамматика — контрибуция
+# в github-linguist/linguist, когда .law разойдётся по репозиториям.
+*.law linguist-language=Kotlin linguist-detectable=false
+*.lawtest linguist-language=Kotlin linguist-detectable=false
+# CLIR и перечни исходников порождены генератором: диффы сворачиваются.
+*.lawir.json linguist-generated=true
+source.json linguist-generated=true
