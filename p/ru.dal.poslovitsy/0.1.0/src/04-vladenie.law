@@ -1,0 +1,114 @@
+// Владение и наследование: «Чья земля, того и хлеб», «Чем старее, тем
+// правее», «Меньшой сын на корню сидит», «Сестры при братьях не вотчинницы».
+//
+// СТАРШИНСТВО — ФАКТОМ СРАВНЕНИЯ, НЕ АРИФМЕТИКОЙ ДАТ. «Чем старее, тем
+// правее» сравнивает крепости, но самих дат пословица не считает — и пакет
+// не считает тоже: относительное старшинство несёт эмпирический факт
+// «крепость одного старше крепости другого». Дело сообщает сравнение,
+// правило выводит первенство; считать календарь здесь значило бы дописать
+// норме вычисление, которого в ней нет.
+//
+// «СЕСТРЫ ПРИ БРАТЬЯХ НЕ ВОТЧИННИЦЫ» — НЕГАТИВНАЯ ГОЛОВА, И ТОЛЬКО ОНА.
+// Пословица говорит ровно вырез: при братьях — нет. Обратной нормы («без
+// братьев — вотчинница») Даль не записал, и пакет её не дописывает: запрос о
+// дочери без братьев молчит (NEITHER). Брат в теле правила — экзистенциальная
+// переменная: достаточно одного.
+//
+// УЛЬТИМОГЕНИТУРА НАЗВАНА ДАЛЕМ ПРЯМО: «(в крестьянстве — наследует домом)»
+// — помета и есть гипотеза правила: младший сын наследует ДОМ, о прочем
+// имуществе пословица молчит.
+
+language "law.core" version "0.1";
+package ru.dal.poslovitsy version "0.1.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+// --- Словарь модуля ----------------------------------------------------------
+
+entity Zemlya {
+    label ru official "земля — участок, вотчина, двор";
+}
+
+relation vladeet(chelovek: Chelovek, zemlya: Zemlya) kind empirical {
+    label ru official "человек владеет землёй";
+}
+
+relation khleb_prinadlezhit(chelovek: Chelovek, zemlya: Zemlya) kind institutional {
+    label ru official "хлеб (плоды) этой земли принадлежит человеку";
+}
+
+relation prityazaet(chelovek: Chelovek, zemlya: Zemlya) kind empirical {
+    label ru official "человек притязает на землю по крепости";
+}
+
+relation krepost_staree(chelovek: Chelovek, chem_u: Chelovek, zemlya: Zemlya) kind empirical {
+    label ru official "крепость человека на землю старше крепости другого";
+}
+
+relation perveet_v_spore(chelovek: Chelovek, zemlya: Zemlya) kind institutional {
+    label ru official "в споре о земле человек правее по старшинству крепости";
+}
+
+relation menshoy_syn(syn: Chelovek, otets: Chelovek) kind empirical {
+    label ru official "человек — меньшой сын отца";
+}
+
+relation syn(syn: Chelovek, otets: Chelovek) kind empirical {
+    label ru official "человек — сын отца";
+}
+
+relation doch(doch: Chelovek, otets: Chelovek) kind empirical {
+    label ru official "человек — дочь отца";
+}
+
+relation nasledstvo_otkrylos(otets: Chelovek) kind empirical {
+    label ru official "наследство после отца открылось";
+}
+
+relation nasleduet_domom(chelovek: Chelovek, otets: Chelovek) kind institutional {
+    label ru official "человек наследует домом после отца («на корню сидит»)";
+}
+
+relation votchinnitsa(doch: Chelovek, otets: Chelovek) kind institutional {
+    label ru official "дочь — вотчинница после отца";
+}
+
+// --- Чья земля, того и хлеб --------------------------------------------------
+
+@source(DP_F_CHYA_ZEMLYA)
+rule ChyaZemlyaTogoKhleb strict {
+    label ru official "Хлеб земли принадлежит её владельцу";
+    for ch: Chelovek; for z: Zemlya;
+    when vladeet(ch, z);
+    then khleb_prinadlezhit(ch, z);
+}
+
+// --- Чем старее, тем правее --------------------------------------------------
+
+@source(DP_F_STAREE)
+rule ChemStareeTemPravee strict {
+    label ru official "При встречных притязаниях правее тот, чья крепость старше";
+    for ch: Chelovek; for drugoy: Chelovek; for z: Zemlya;
+    when prityazaet(ch, z) and prityazaet(drugoy, z)
+        and krepost_staree(ch, drugoy, z);
+    then perveet_v_spore(ch, z);
+}
+
+// --- Меньшой сын на корню сидит ----------------------------------------------
+
+@source(DP_F_MENSHOY_SYN)
+rule MenshoySynNaKornyu strict {
+    label ru official "Меньшой сын наследует домом";
+    for s: Chelovek; for o: Chelovek;
+    when menshoy_syn(s, o) and nasledstvo_otkrylos(o);
+    then nasleduet_domom(s, o);
+}
+
+// --- Сестры при братьях не вотчинницы ----------------------------------------
+
+@source(DP_F_SESTRY)
+rule SestryPriBratyakh defeasible {
+    label ru official "При братьях дочь не вотчинница";
+    for dch: Chelovek; for o: Chelovek; for br: Chelovek;
+    when doch(dch, o) and syn(br, o) and nasledstvo_otkrylos(o);
+    then not votchinnitsa(dch, o);
+}

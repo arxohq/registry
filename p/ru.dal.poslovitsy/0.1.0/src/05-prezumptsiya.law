@@ -1,0 +1,58 @@
+// Презумпция: «Не пойман — не вор, не уличена — не гулява».
+//
+// ПОСЛОВИЦА ЕСТЬ ПРЕЗУМПЦИЯ БУКВАЛЬНО, и записана конструкцией presumption —
+// той же, какой Декларация 1789 года записывает ст. 9 (fr.declaration-1789,
+// Innocence): подозреваемый презюмируется чистым от татьбы, поимка с
+// поличным презумпцию опрокидывает. Дефитер — утверждаемый эмпирический
+// факт, то есть строгий по построению: поражаемый вывод презумпцию бы НЕ
+// снял (мера предосторожности из найденного на минимальной паре дефекта —
+// дефитер презумпции обязан быть строгим).
+//
+// ДВА ПРЕДИКАТА, А НЕ ОДИН С ОТРИЦАНИЕМ. «Чист от татьбы» (презюмируемое) и
+// «вор» (выводимое из поимки) — раздельные отношения без логического моста,
+// как innocent и declared_guilty у Декларации: комплементарная пара с двумя
+// источниками вывода дала бы BOTH на честном деле, а здесь BOTH недостижим.
+// Вторая половина пословицы («не уличена — не гулява») — та же презумпция
+// о другом составе; она закреплена тем же фрагментом и отдельным правилом
+// не дублируется.
+
+language "law.core" version "0.1";
+package ru.dal.poslovitsy version "0.1.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+// --- Словарь модуля ----------------------------------------------------------
+
+relation podozrevaetsya(chelovek: Chelovek) kind empirical {
+    label ru official "человек подозревается в татьбе";
+}
+
+relation poyman_s_polichnym(chelovek: Chelovek) kind empirical {
+    label ru official "человек пойман с поличным";
+}
+
+relation chist_ot_tatby(chelovek: Chelovek) kind institutional {
+    label ru official "человек чист от татьбы («не вор»)";
+}
+
+relation vor(chelovek: Chelovek) kind institutional {
+    label ru official "человек — вор";
+}
+
+// --- Не пойман — не вор ------------------------------------------------------
+
+@source(DP_F_NE_POYMAN)
+presumption NePoymanNeVor {
+    label ru official "Подозреваемый презюмируется чистым от татьбы, доколе не пойман";
+    for ch: Chelovek;
+    when podozrevaetsya(ch);
+    presume chist_ot_tatby(ch);
+    unless poyman_s_polichnym(ch) then not chist_ot_tatby(ch);
+}
+
+@source(DP_F_NE_POYMAN)
+rule PoymanVor strict {
+    label ru official "Пойманный с поличным — вор";
+    for ch: Chelovek;
+    when poyman_s_polichnym(ch);
+    then vor(ch);
+}

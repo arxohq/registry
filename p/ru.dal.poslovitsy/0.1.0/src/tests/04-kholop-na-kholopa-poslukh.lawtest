@@ -1,0 +1,17 @@
+language "law.core" version "0.1";
+package ru.dal.poslovitsy version "0.1.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+// Холоп свидетельствует против холопа — послух допустим.
+test "urn:query:dp-kholop-na-kholopa-poslukh" {
+    given {
+        context { decision_time @2026-08-29T12:00:00Z; knowledge_time @2026-08-29T12:00:00Z; legal_time @1879-06-01; timezone "UTC"; }
+        assert kholop(entity_ref("urn:ru:dal:clir:poslovitsy#Grishka")) { id "dp04-1"; origin case_input; }
+        assert kholop(entity_ref("urn:ru:dal:clir:poslovitsy#Miron")) { id "dp04-2"; origin case_input; }
+        assert svidetelstvuet(entity_ref("urn:ru:dal:clir:poslovitsy#Grishka"), entity_ref("urn:ru:dal:clir:poslovitsy#Miron"), entity_ref("urn:ru:dal:clir:poslovitsy#DeloOPotrave")) { id "dp04-3"; origin case_input; }
+    }
+    evaluate truth(poslukh(entity_ref("urn:ru:dal:clir:poslovitsy#Grishka"), entity_ref("urn:ru:dal:clir:poslovitsy#Miron"), entity_ref("urn:ru:dal:clir:poslovitsy#DeloOPotrave")));
+    expect result_kind == PROPOSITION;
+    expect truth_status == TRUE_ONLY;
+    expect evaluation_status == COMPUTED;
+}

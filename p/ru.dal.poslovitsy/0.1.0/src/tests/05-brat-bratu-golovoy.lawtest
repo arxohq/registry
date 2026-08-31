@@ -1,0 +1,18 @@
+language "law.core" version "0.1";
+package ru.dal.poslovitsy version "0.1.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+// Родовая ответственность «(стар.)»: в деле был только Фрол, но его брат
+// Степан в ответе — не участвуя. Ответ постороннего этот пакет оставляет
+// молчанием (см. 03-otvet.law), а ответ брата выводит.
+test "urn:query:dp-brat-bratu-golovoy" {
+    given {
+        context { decision_time @2026-08-29T12:00:00Z; knowledge_time @2026-08-29T12:00:00Z; legal_time @1879-06-01; timezone "UTC"; }
+        assert v_dele(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#DeloODolge")) { id "dp05-1"; origin case_input; }
+        assert brat(entity_ref("urn:ru:dal:clir:poslovitsy#Stepan"), entity_ref("urn:ru:dal:clir:poslovitsy#Frol")) { id "dp05-2"; origin case_input; }
+    }
+    evaluate truth(v_otvete(entity_ref("urn:ru:dal:clir:poslovitsy#Stepan"), entity_ref("urn:ru:dal:clir:poslovitsy#DeloODolge")));
+    expect result_kind == PROPOSITION;
+    expect truth_status == TRUE_ONLY;
+    expect evaluation_status == COMPUTED;
+}

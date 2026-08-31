@@ -1,0 +1,74 @@
+// Ответственность: «Кто в деле, тот и в ответе», «Брат брату головой в
+// уплату (стар.)», «С одного тягла по две дани не берут».
+//
+// ЛИЧНАЯ И РОДОВАЯ ОТВЕТСТВЕННОСТЬ СТОЯТ В ОДНОМ РАЗДЕЛЕ ДАЛЯ РЯДОМ —
+// строки 54 и 33 «Суда — правды» — и обе записаны позитивными правилами БЕЗ
+// приоритета между ними. Это сознательно: пословицы не противоречат друг
+// другу (обе называют, КТО отвечает, и родовая добавляет ответчика, а не
+// снимает), а их историческое напряжение видно по далевским пометам —
+// родовая несёт «(стар.)», личная пометы не несёт. Тот же вопрос «кто платит
+// за чужой вред» корпус уже держит с двух других сторон: дикая вира
+// kz.corpus.russkaya-pravda (платит вервь) и казахский журтшылық — круги
+// родства kz.corpus.tuystyq; здесь третий ответ: отвечает участник, а по
+// старому праву — и брат.
+//
+// ОТВЕТ НЕУЧАСТНИКА — МОЛЧАНИЕ, НЕ ОТРИЦАНИЕ. «Кто в деле, тот и в ответе»
+// эксклюзива в тексте не несёт (второй половины «кто не в деле, тот не в
+// ответе» у Даля нет), и пакет её не дописывает: запрос об ответственности
+// постороннего даёт NEITHER — право молчит, а не оправдывает.
+
+language "law.core" version "0.1";
+package ru.dal.poslovitsy version "0.1.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+// --- Словарь модуля ----------------------------------------------------------
+
+relation v_dele(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек участвовал в деле";
+}
+
+relation brat(chelovek: Chelovek, bratu: Chelovek) kind empirical {
+    label ru official "человек — брат другому";
+}
+
+relation v_otvete(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "человек в ответе по делу";
+}
+
+relation dan_uplachena(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "дань с тягла человека по этому окладу уплачена";
+}
+
+relation vtoraya_dan_nedopustima(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "вторая дань с того же тягла по тому же окладу недопустима";
+}
+
+// --- Кто в деле, тот и в ответе ----------------------------------------------
+
+@source(DP_F_KTO_V_DELE)
+rule KtoVDeleTotVOtvete strict {
+    label ru official "Участник дела в ответе по нему";
+    for ch: Chelovek; for d: Delo;
+    when v_dele(ch, d);
+    then v_otvete(ch, d);
+}
+
+// --- Брат брату головой в уплату (стар.) -------------------------------------
+
+@source(DP_F_BRAT_BRATU)
+rule BratBratuGolovoy strict {
+    label ru official "По старому праву брат участника отвечает за него головой";
+    for ch: Chelovek; for uchastnik: Chelovek; for d: Delo;
+    when brat(ch, uchastnik) and v_dele(uchastnik, d);
+    then v_otvete(ch, d);
+}
+
+// --- С одного тягла по две дани не берут -------------------------------------
+
+@source(DP_F_ODNO_TYAGLO)
+rule OdnoTyagloOdnaDan strict {
+    label ru official "С уплатившего дань второй раз по тому же окладу не берут";
+    for ch: Chelovek; for d: Delo;
+    when dan_uplachena(ch, d);
+    then vtoraya_dan_nedopustima(ch, d);
+}

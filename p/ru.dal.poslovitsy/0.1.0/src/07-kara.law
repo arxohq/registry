@@ -1,0 +1,79 @@
+// Кара и повинная: «За дело побить можно», «Покорной головы и меч не
+// сечет», «По дважды и Бог за одну вину не карает».
+//
+// ТРИ ПРАВИЛА, ДВА ПРИОРИТЕТА. База — за установленную вину кара допустима;
+// два выреза побеждают её lex specialis: повинная голова («и меч не сечет»)
+// и уже понесённая кара («по дважды... не карает» — ne bis in idem, парный
+// податному «с одного тягла по две дани не берут» из модуля 03). Приоритеты
+// записаны ДВУМЯ декларациями, по одной на pair — несколько prefer в одной
+// декларации lowering сохраняет только последним.
+//
+// БАЗА — DEFEASIBLE СОЗНАТЕЛЬНО: она и должна уступать вырезам; strict-базу
+// поражаемые вырезы не тронули бы (приоритет действует только внутри
+// страты), и повинная голова осталась бы под мечом при зелёном check.
+
+language "law.core" version "0.1";
+package ru.dal.poslovitsy version "0.1.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+// --- Словарь модуля ----------------------------------------------------------
+
+relation vinoven(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "вина человека по делу установлена («за дело»)";
+}
+
+relation povinilsya(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек принёс повинную по делу";
+}
+
+relation kara_ponesena(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек уже понёс кару по этому делу";
+}
+
+relation podlezhit_kare(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "человек подлежит каре по делу";
+}
+
+// --- За дело побить можно ----------------------------------------------------
+
+@source(DP_F_ZA_DELO)
+rule ZaDeloKara defeasible {
+    label ru official "Виновный подлежит каре";
+    for ch: Chelovek; for d: Delo;
+    when vinoven(ch, d);
+    then podlezhit_kare(ch, d);
+}
+
+// --- Повинную голову и меч не сечет ------------------------------------------
+
+@source(DP_F_POVINNAYA_GOLOVA)
+rule PovinnuyuGolovuMechNeSechet defeasible {
+    label ru official "Принёсший повинную виновный каре не подлежит";
+    for ch: Chelovek; for d: Delo;
+    when vinoven(ch, d) and povinilsya(ch, d);
+    then not podlezhit_kare(ch, d);
+}
+
+@source(DP_F_POVINNAYA_GOLOVA)
+priority PovinnayaNadKaroy {
+    label ru official "Повинная — названный вырез из общей кары";
+    prefer PovinnuyuGolovuMechNeSechet over ZaDeloKara;
+    reason lex_specialis;
+}
+
+// --- По дважды за одну вину не карают ----------------------------------------
+
+@source(DP_F_PO_DVAZHDY)
+rule PoDvazhdyNeKarayut defeasible {
+    label ru official "Понёсший кару второй раз за ту же вину каре не подлежит";
+    for ch: Chelovek; for d: Delo;
+    when vinoven(ch, d) and kara_ponesena(ch, d);
+    then not podlezhit_kare(ch, d);
+}
+
+@source(DP_F_PO_DVAZHDY)
+priority NeBisInIdem {
+    label ru official "Понесённая кара — названный вырез из общей кары";
+    prefer PoDvazhdyNeKarayut over ZaDeloKara;
+    reason lex_specialis;
+}

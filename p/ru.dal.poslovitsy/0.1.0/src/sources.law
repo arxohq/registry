@@ -1,0 +1,316 @@
+// Source-модель юридического пласта «Пословиц русского народа» В. И. Даля:
+// один свидетель обычая, четыре закреплённых раздела, двадцать два фрагмента.
+//
+// ЗАКРЕПЛЯЕТСЯ ЗАПИСЬ ОБЫЧАЯ, А НЕ АКТ. Пословица в крестьянском правопорядке
+// России — норма, на которую ссылаются в споре; установителя у неё нет, и
+// собственного текста тоже: известна она только записью собирателя. Приём —
+// «Репка» (обычай совместного действия в трёх записях) и kz.corpus.qara-soz,
+// где Абай судит пословицы именно как нормы. Свидетель здесь один — сборник
+// Даля во втором издании (М., 1879), как его передаёт русская Викитека; байты
+// разделов закреплены поимённо, по одной пословичной статье Даля на строку,
+// и адресация фрагментов `lines/N` читается прямо по номерам строк.
+//
+// ОКНА ДЕЙСТВИЯ У РЕДАКЦИЙ НЕТ СОЗНАТЕЛЬНО. Обычай никем не установлен, и
+// `in_force` объявить значило бы соврать о его границах (довод «Репки» и
+// «Законов XII таблиц»). `adopted` — дата ВТОРОГО ИЗДАНИЯ сборника, свойство
+// свидетельства, а не обычая. Следствие названо, чтобы не искали дефект:
+// проекция as-of по пакету пуста и `impact-editions` к нему неприменим.
+//
+// ПРОВЕНАНС — ЗАКРЕПЛЁННАЯ РЕВИЗИЯ ВИКИТЕКИ. `uri` каждой публикации несёт
+// `oldid`: викитекст одной ревизии неизменен навсегда, отрисовка страницы
+// меняется вместе с движком (приём `fetch_repka_texts.py`). Изданий 1862 и
+// 1879 годов в байтах у корпуса нет — отсюда `officiality unofficial` и
+// `PINNED_UNOFFICIAL_COPY` у всех четырёх разделов. Байты получены
+// воспроизводимым извлечением
+// `corpus/tools/sources/fetch/fetch_poslovitsy_texts.py`; пометы самого Даля
+// («или:», «т. е.», «стар.», «зак.») сохраняются — снимается только разметка.
+//
+// ПОМЕТА «(зак.)» — СОБСТВЕННАЯ КВАЛИФИКАЦИЯ ДАЛЯ: пословица совпадает с
+// писаным законом; «(стар.)» — норма старого права, вышедшая из обихода.
+// Обе пометы входят в закреплённые байты и читаются в комментариях модулей.
+//
+// ПРАВА. Даль умер в 1872 году; текст в общественном достоянии везде.
+
+language "law.core" version "0.1";
+package ru.dal.poslovitsy version "0.1.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+source DAL_POSLOVITSY {
+    kind custom_law;
+    jurisdiction "RU";
+    number "Даль, «Пословицы русского народа», 2-е изд., 1879";
+    label ru official "Юридический пласт «Пословиц русского народа» В. И. Даля: суд, послух, ответственность, владение, уговор, кара";
+}
+
+// --- Раздел «Суд — правда» ---------------------------------------------------
+
+edition DAL_SUD_PRAVDA of DAL_POSLOVITSY {
+    label ru official "Раздел «Суд — правда»: процесс, допустимость послуха, личная и родовая ответственность, владение и наследование";
+    language ru;
+    officiality unofficial;
+    adopted @1879-01-01;
+    materialization_status PINNED_UNOFFICIAL_COPY;
+}
+
+publication DAL_SUD_PRAVDA_TEXT of DAL_SUD_PRAVDA {
+    media_type "text/plain; charset=utf-8";
+    uri "https://ru.wikisource.org/w/index.php?oldid=2239153";
+    retrieved_at @2026-08-29T18:00:00Z;
+    content_hash "sha256:d4f53c5eceea21df0a7a1efa2fef9976cd7ffb983dae3e6599d327f9d7bad6c1";
+    local_path "sources/poslovitsy/sud-pravda.txt";
+}
+
+fragment DP_F_BEZ_SUDA in DAL_SUD_PRAVDA {
+    label ru official "Без суда не казнят — с далевской пометой «(зак.)»";
+    kind clause;
+    locator "lines/10";
+    text ru official """Без суда не казнят. Без суда никто да не накажется (зак.).
+""";
+    content_hash "sha256:02fe863c734b391f6d81b802523bd1a75b3927682b2d1c65d43381c35bb8e29b";
+}
+
+fragment DP_F_NE_PERESUZHAT in DAL_SUD_PRAVDA {
+    label ru official "Судов не пересужать — res judicata с пометой «(зак.)»";
+    kind clause;
+    locator "lines/17";
+    text ru official """Судов не пересужать. Дела не перевершать (зак.).
+""";
+    content_hash "sha256:7803538a56f3ac96ae550ccaa75145049b90a32d1c785a369e0254d6db77b4c0";
+}
+
+fragment DP_F_ISTTSU_PERVOE in DAL_SUD_PRAVDA {
+    label ru official "Истцу первое слово, ответчику последнее — порядок речей";
+    kind clause;
+    locator "lines/28";
+    text ru official """Истцу первое слово, ответчику последнее.
+""";
+    content_hash "sha256:aef0637aeb0f712e63664ede5f1399ffd7b9b5afc1b20cd8860f649c3c5e9aad";
+}
+
+fragment DP_F_KHOLOP_NA_BOYARINA in DAL_SUD_PRAVDA {
+    label ru official "Холоп на боярина не послух — Даль сам даёт источник: «Прав.» Яросл.";
+    kind clause;
+    locator "lines/29";
+    text ru official """Холоп на боярина не послух (т. е. не свидетель. «Прав.» Яросл.).
+""";
+    content_hash "sha256:0351c8c3addd06d10d79101cadcaa1432bc288735f2a935e17f4624f54ffc928";
+}
+
+fragment DP_F_KHOLOP_NA_KHOLOPA in DAL_SUD_PRAVDA {
+    label ru official "Холоп на холопа послух — допустимость свидетеля равного состояния";
+    kind clause;
+    locator "lines/30";
+    text ru official """Холоп на холопа послух.
+""";
+    content_hash "sha256:24eaa0684beadc4ec453d7c61a8774185a722a35e3a0972b98136cd011922a68";
+}
+
+fragment DP_F_BRAT_BRATU in DAL_SUD_PRAVDA {
+    label ru official "Брат брату головой в уплату — родовая ответственность, помета «(стар.)»";
+    kind clause;
+    locator "lines/33";
+    text ru official """Брат брату головой в уплату (стар.).
+""";
+    content_hash "sha256:6bf93166b70df5cff913b9551c077327e5112aeb5cc12c63c4bd6762a23f804d";
+}
+
+fragment DP_F_LEZHACHEGO in DAL_SUD_PRAVDA {
+    label ru official "Лежачего не бьют — запрет из кулачного права";
+    kind clause;
+    locator "lines/35";
+    text ru official """Лежачего не бьют (от кулачных боев).
+""";
+    content_hash "sha256:cf855af06c673cd47965e08baa6447e6bba3a6a3f725332b5991cc318e5dc493";
+}
+
+fragment DP_F_ODNO_TYAGLO in DAL_SUD_PRAVDA {
+    label ru official "С одного тягла по две дани не берут — податное ne bis in idem";
+    kind clause;
+    locator "lines/37";
+    text ru official """С одного тягла по две дани не берут.
+""";
+    content_hash "sha256:b9cd274a535c998ca57954b1d8b878e38616ad6126130e0ee62c7f319a02c185";
+}
+
+fragment DP_F_CHYA_ZEMLYA in DAL_SUD_PRAVDA {
+    label ru official "Чья земля, того и хлеб — принадлежность плодов владельцу";
+    kind clause;
+    locator "lines/40";
+    text ru official """Чья земля, того и городьба. Чья земля, того и хлеб.
+""";
+    content_hash "sha256:bf85206720b66aa55fe68012a225061c5a423ee6511d053c8656ef4a60a58995";
+}
+
+fragment DP_F_STAREE in DAL_SUD_PRAVDA {
+    label ru official "Чем старее, тем правее; кто поране, тот и поправей — старшинство владения";
+    kind clause;
+    locator "lines/44-46";
+    text ru official """Чем старее, тем правее (т. е. право, владение).
+Чья воля старее, та и правее.
+Кто поране, тот и поправей (т. е. владеет).
+""";
+    content_hash "sha256:a5eb26cd2b96a510c203ab651ef2764fff0b004d81e041e8011f76b2d3f520a5";
+}
+
+fragment DP_F_SESTRY in DAL_SUD_PRAVDA {
+    label ru official "Сестры при братьях не вотчинницы — наследственный вырез, помета «(стар.)»";
+    kind clause;
+    locator "lines/49";
+    text ru official """Сестры при братьях не вотчинницы (стар.).
+""";
+    content_hash "sha256:e6a920ef4408f07c9cd22a0caac91f848d3db079438b994827f9269e4d71e317";
+}
+
+fragment DP_F_MENSHOY_SYN in DAL_SUD_PRAVDA {
+    label ru official "Меньшой сын на корню сидит — крестьянская ультимогенитура";
+    kind clause;
+    locator "lines/50";
+    text ru official """Меньшой сын на корню сидит (в крестьянстве — наследует домом).
+""";
+    content_hash "sha256:cc206f450e435c73d53dda49390f7467cee3617be1f02bc28391f8ce4d2033e9";
+}
+
+fragment DP_F_KTO_V_DELE in DAL_SUD_PRAVDA {
+    label ru official "Кто в деле, тот и в ответе — личная ответственность участника";
+    kind clause;
+    locator "lines/54";
+    text ru official """Кто в деле, тот и в ответе.
+""";
+    content_hash "sha256:cbf5e0086227e2f3f2dbee41b318449358faa2e23f4884db3fded9f2217f01c7";
+}
+
+fragment DP_F_SAMOSUD in DAL_SUD_PRAVDA {
+    label ru official "Самосуд — не суд";
+    kind clause;
+    locator "lines/65";
+    text ru official """Самосуд — не суд. Самому судить — не рассудить.
+""";
+    content_hash "sha256:ddafdd64b98f6a563cf2401918c6cb0e29019f8fdb215a90c8d2ab0bd4cb8b5a";
+}
+
+fragment DP_F_NIKTO_SAM in DAL_SUD_PRAVDA {
+    label ru official "Никто сам в своем деле судьею быть не может — nemo judex in causa sua";
+    kind clause;
+    locator "lines/66";
+    text ru official """Никто сам себя не судит. Никто сам в своем деле судьею быть не может.
+""";
+    content_hash "sha256:7160b3ec362036a9647fc5fdf6fbb13759f126b0977e0706b1e41e3d5171b165";
+}
+
+// --- Раздел «Правда — неправда — ложь» ---------------------------------------
+
+edition DAL_PRAVDA_NEPRAVDA of DAL_POSLOVITSY {
+    label ru official "Раздел «Правда — неправда — ложь»: презумпция «Не пойман — не вор»";
+    language ru;
+    officiality unofficial;
+    adopted @1879-01-01;
+    materialization_status PINNED_UNOFFICIAL_COPY;
+}
+
+publication DAL_PRAVDA_NEPRAVDA_TEXT of DAL_PRAVDA_NEPRAVDA {
+    media_type "text/plain; charset=utf-8";
+    uri "https://ru.wikisource.org/w/index.php?oldid=2239224";
+    retrieved_at @2026-08-29T18:00:00Z;
+    content_hash "sha256:5ecb4a85f795e2f2354a5d8d39122c226c4a947c77195a4097a7f9ae569b63ce";
+    local_path "sources/poslovitsy/pravda-nepravda.txt";
+}
+
+fragment DP_F_NE_POYMAN in DAL_PRAVDA_NEPRAVDA {
+    label ru official "Не пойман — не вор, не уличена — не гулява — презумпция невиновности";
+    kind clause;
+    locator "lines/13";
+    text ru official """Не пойман — не вор, не уличена — не гулява.
+""";
+    content_hash "sha256:35c40f271252a28fa4fe436a97e27e5ac1c19a5e8a881cb08b02441f84d99733";
+}
+
+// --- Раздел «Условие — обман» ------------------------------------------------
+
+edition DAL_USLOVIE_OBMAN of DAL_POSLOVITSY {
+    label ru official "Раздел «Условие — обман»: сила уговора и данного слова";
+    language ru;
+    officiality unofficial;
+    adopted @1879-01-01;
+    materialization_status PINNED_UNOFFICIAL_COPY;
+}
+
+publication DAL_USLOVIE_OBMAN_TEXT of DAL_USLOVIE_OBMAN {
+    media_type "text/plain; charset=utf-8";
+    uri "https://ru.wikisource.org/w/index.php?oldid=2239158";
+    retrieved_at @2026-08-29T18:00:00Z;
+    content_hash "sha256:f8f99c31a5790b9412fb3f38e01f8585e5b481b6bde091138cab224ab0eb4f4d";
+    local_path "sources/poslovitsy/uslovie-obman.txt";
+}
+
+fragment DP_F_UGOVOR_DOROZHE in DAL_USLOVIE_OBMAN {
+    label ru official "Договор лучше денег — с ДВУМЯ прочтениями, записанными самим Далем";
+    kind clause;
+    locator "lines/3";
+    text ru official """Договор (Уговор) лучше (дороже) денег (говорят также: деньги лучше уговора; первое значит: уговаривайся так, чтобы спору не было, а то ничего не получишь; второе: не верь словам, верь деньгам).
+""";
+    content_hash "sha256:8955f6dabeb1ec6485b2d7ab42a06cd1e4dd17e0df649604a405ea2d92002128";
+}
+
+fragment DP_F_PEREGOVOR in DAL_USLOVIE_OBMAN {
+    label ru official "Переговор — не уговор: одни переговоры не связывают";
+    kind clause;
+    locator "lines/20";
+    text ru official """Переговор — не уговор. Недоряжено — недоплачено.
+""";
+    content_hash "sha256:4b4112ff4618300830ee9fa2ae80b2832714a5272b2f3f48d9b84cf37d10c219";
+}
+
+fragment DP_F_DAVSHI_SLOVO in DAL_USLOVIE_OBMAN {
+    label ru official "Не давши слова, крепись, а давши — держись! — обязательство из слова";
+    kind clause;
+    locator "lines/85";
+    text ru official """Не давши слова, крепись, а давши — держись!
+""";
+    content_hash "sha256:6441bc0732b2cefe644f282f6a9919b4cde0974979b031866cdf2fc467be3ad1";
+}
+
+// --- Раздел «Кара — признание — покорность» ----------------------------------
+
+edition DAL_KARA_PRIZNANIE of DAL_POSLOVITSY {
+    label ru official "Раздел «Кара — признание — покорность»: кара за вину и её смягчение повинной";
+    language ru;
+    officiality unofficial;
+    adopted @1879-01-01;
+    materialization_status PINNED_UNOFFICIAL_COPY;
+}
+
+publication DAL_KARA_PRIZNANIE_TEXT of DAL_KARA_PRIZNANIE {
+    media_type "text/plain; charset=utf-8";
+    uri "https://ru.wikisource.org/w/index.php?oldid=2239126";
+    retrieved_at @2026-08-29T18:00:00Z;
+    content_hash "sha256:ca07903628f4c4c5c89bb2f5962a3cb3327aba8710a8aa58d78e4a14583f530a";
+    local_path "sources/poslovitsy/kara-priznanie.txt";
+}
+
+fragment DP_F_POVINNAYA_GOLOVA in DAL_KARA_PRIZNANIE {
+    label ru official "Повинную голову и меч не сечет — признание снимает кару";
+    kind clause;
+    locator "lines/14";
+    text ru official """Покорной головы (или: Повинную голову) и меч не сечет.
+""";
+    content_hash "sha256:996ddfd151fb9dcf7b285ce40c96a46de297f3f9ea59084b78e5f4b2da04ecbc";
+}
+
+fragment DP_F_PO_DVAZHDY in DAL_KARA_PRIZNANIE {
+    label ru official "По дважды и Бог за одну вину не карает — ne bis in idem";
+    kind clause;
+    locator "lines/19";
+    text ru official """По дважды и Бог за одну вину не карает.
+""";
+    content_hash "sha256:4dd0e3b4578c2fe5c93bfe0f0df55ed9be63b90a7e90e81d9b6b4795f2071515";
+}
+
+fragment DP_F_ZA_DELO in DAL_KARA_PRIZNANIE {
+    label ru official "За дело побить можно — базовая санкция за установленную вину";
+    kind clause;
+    locator "lines/76-77";
+    text ru official """За дело побить можно. Побьют — ума дадут.
+За дело побьют — повинись да ниже поклонись.
+""";
+    content_hash "sha256:3028e797d91ee7914d1099e6424a2739198427a2cfa4ec5123d11db3608642a8";
+}

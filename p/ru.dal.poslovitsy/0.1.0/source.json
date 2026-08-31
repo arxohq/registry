@@ -1,0 +1,87 @@
+{
+ "files": [
+  {
+   "path": "01-sud.law",
+   "sha256": "ef28a18644e3ef17eeed6d9446b582c9999bb3c6e93eb7bfcbc3caa7521ce7fe"
+  },
+  {
+   "path": "02-poslukh.law",
+   "sha256": "281c864ba29252dea1c554527c4b1452cbc53fd0b67bf4dc397c2ffa779709cc"
+  },
+  {
+   "path": "03-otvet.law",
+   "sha256": "5235d5dc82cb5353b42c31843d4b9a00f280cf0b1886d8fa7bcb8babbbc7e95d"
+  },
+  {
+   "path": "04-vladenie.law",
+   "sha256": "6f422558af58b7dad43c2a9749c25199ac5b54d51d00a59d5ec8bfc7b9d3a0f8"
+  },
+  {
+   "path": "05-prezumptsiya.law",
+   "sha256": "5caeaed2336ac7d19f77e8784978c217bb6d68dd3f60894223d01c5d57a94353"
+  },
+  {
+   "path": "06-ugovor.law",
+   "sha256": "49957b9798792876c6e1f67a3c2d706a3988bc36b2362a6872e981301f78cba2"
+  },
+  {
+   "path": "07-kara.law",
+   "sha256": "1d43a3701572a9ce1a963963a97326f776b14403ab8db2dba572ea7a306f878a"
+  },
+  {
+   "path": "law.toml",
+   "sha256": "cc12e7ac88cd3247ba7e5c84eb25f1187583ac7d2b0e7e0c51d5b947317e5041"
+  },
+  {
+   "path": "package.law",
+   "sha256": "43383daf6dc7729005cf825a7402d4aa1f9a4b9b4f9e50dd9bb99b0a04c9df8e"
+  },
+  {
+   "path": "sources.law",
+   "sha256": "336d8fb7c5031a8f9ae08003f11a9ccac4712c7c29a0bb6ade40a7beabc63762"
+  },
+  {
+   "path": "tests/01-osuzhdyonnomu-kazn-dopustima.lawtest",
+   "sha256": "9128caa513a2828811b2d5f750ed1c20c9a3fcb56c88ee046278b86291e78df5"
+  },
+  {
+   "path": "tests/02-bez-suda-kazn-nedopustima.lawtest",
+   "sha256": "eaa7bc91bd47603d2d18bc0d77c9988192ed92be398207d0e22f9e32d73102aa"
+  },
+  {
+   "path": "tests/03-kholop-na-boyarina-ne-poslukh.lawtest",
+   "sha256": "88cd8d65de2da4a36b35e5cffe62b512af9bda5e3c325c12a946684df38cd64a"
+  },
+  {
+   "path": "tests/04-kholop-na-kholopa-poslukh.lawtest",
+   "sha256": "8af27a5d38be0adec69e0fbf693841136a58868e9fd1272504e400239db5ec27"
+  },
+  {
+   "path": "tests/05-brat-bratu-golovoy.lawtest",
+   "sha256": "79e2dead7a119d12f32d74f094011edd64889a6a5f9f71131bf6243304ab09b3"
+  },
+  {
+   "path": "tests/06-ne-poyman-ne-vor.lawtest",
+   "sha256": "a72e8c5c2608a8fc142bbc2b1580e6ba1eff3231f4e3379bbacb2c31bd6a1f76"
+  },
+  {
+   "path": "tests/07-poyman-prezumptsiya-oprokinuta.lawtest",
+   "sha256": "a97e0ddf3a3568a9f279a2ed2b6e743f66f80041a8d74abf4cc64854630f9164"
+  },
+  {
+   "path": "tests/08-ugovor-bez-deneg-both.lawtest",
+   "sha256": "be19bab2fe42f5aeec97c5a0800b722f5f2d52e6156c5e33d837bbef62dcf6cd"
+  },
+  {
+   "path": "tests/09-povinnuyu-golovu-mech-ne-sechet.lawtest",
+   "sha256": "d326e0c9f90f7f3136dfce71d5cb2a16f30bb9a0ff32ca950ef284ddd6794e77"
+  },
+  {
+   "path": "tests/10-menshoy-syn-na-kornyu.lawtest",
+   "sha256": "47acdb3f1da48594d966fa161c651192ab145fd71d5137e8031441c1107aba23"
+  }
+ ],
+ "omitted": [
+  "sources/"
+ ]
+}

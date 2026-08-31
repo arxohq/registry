@@ -1,0 +1,92 @@
+// Уговор и слово: «Договор (Уговор) лучше (дороже) денег», «Переговор — не
+// уговор», «Не давши слова, крепись, а давши — держись!».
+//
+// ВСТРЕЧНАЯ ПАРА ЗАПИСАНА САМИМ ДАЛЕМ, И ПАКЕТ ЕЁ НЕ РАЗРЕШАЕТ. Статья
+// сборника несёт ОБА прочтения в одной строке: «Уговор дороже денег» и
+// «говорят также: деньги лучше уговора», — и Даль толкует их сам: первое —
+// «уговаривайся так, чтобы спору не было», второе — «не верь словам, верь
+// деньгам». Это два правила с противоположными головами БЕЗ приоритета:
+// уговор связывает / без денег не связывает. На деле «уговор есть, деньги
+// не плачены» пакет отвечает BOTH — и это ОТВЕТ, а не дефект: пословичный
+// фонд не кодекс, спорящие берут из него каждый свою сторону, и приоритет
+// здесь выдумал бы формализатор, а не источник (приём «Антигоны»:
+// BOTH+INCOMPARABLE как ответ права; ср. также условное принятие пословицы
+// в kz.corpus.qara-soz, где приоритет прочтений дан САМИМ текстом Абая — у
+// Даля его нет).
+//
+// «ПЕРЕГОВОР — НЕ УГОВОР» СТОИТ ВТОРЫМ ЯКОРЕМ на правиле связанности
+// сознательно: он проводит нижнюю границу того же вывода (связывает
+// УГОВОР, и только он), а не отдельную норму. Дело с одними переговорами
+// правило не зажигает — запрос о связанности молчит (NEITHER).
+//
+// «ДАВШИ — ДЕРЖИСЬ» — ЕДИНСТВЕННАЯ ДЕОНТИКА МОДУЛЯ: у неё, в отличие от
+// встречной пары, есть носитель — давший слово; achievement-цель без
+// нижней границы окна, обещание не истекает само собой.
+
+language "law.core" version "0.1";
+package ru.dal.poslovitsy version "0.1.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+// --- Словарь модуля ----------------------------------------------------------
+
+entity Sdelka {
+    label ru official "сделка — предмет уговора либо данного слова";
+}
+
+relation ugovor_zaklyuchen(chelovek: Chelovek, s_kem: Chelovek, sdelka: Sdelka) kind empirical {
+    label ru official "уговор о сделке заключён («били по рукам»)";
+}
+
+relation dengi_uplacheny(sdelka: Sdelka) kind empirical {
+    label ru official "деньги по сделке уплачены";
+}
+
+relation peregovory(chelovek: Chelovek, s_kem: Chelovek, sdelka: Sdelka) kind empirical {
+    label ru official "о сделке шли одни переговоры";
+}
+
+relation svyazan(chelovek: Chelovek, sdelka: Sdelka) kind institutional {
+    label ru official "человек связан сделкой";
+}
+
+relation dal_slovo(chelovek: Chelovek, sdelka: Sdelka) kind empirical {
+    label ru official "человек дал слово о сделке";
+}
+
+relation slovo_ispolneno(sdelka: Sdelka) kind empirical {
+    label ru official "данное слово исполнено";
+}
+
+// --- Уговор дороже денег / деньги лучше уговора ------------------------------
+
+@source(DP_F_UGOVOR_DOROZHE, DP_F_PEREGOVOR)
+rule UgovorDorozheDeneg defeasible {
+    label ru official "Первое прочтение: заключённый уговор связывает сам по себе";
+    for ch: Chelovek; for vtoroy: Chelovek; for s: Sdelka;
+    when ugovor_zaklyuchen(ch, vtoroy, s);
+    then svyazan(ch, s);
+}
+
+@source(DP_F_UGOVOR_DOROZHE)
+rule DengiLuchsheUgovora defeasible {
+    label ru official "Второе прочтение: не верь словам, верь деньгам — без уплаты уговор не связывает";
+    for ch: Chelovek; for vtoroy: Chelovek; for s: Sdelka;
+    when ugovor_zaklyuchen(ch, vtoroy, s) and not_known(dengi_uplacheny(s));
+    then not svyazan(ch, s);
+}
+
+// --- Не давши слова, крепись, а давши — держись ------------------------------
+
+@source(DP_F_DAVSHI_SLOVO)
+rule DavshiSlovoDerzhis strict {
+    label ru official "Давший слово обязан его держать";
+    for ch: Chelovek; for s: Sdelka;
+    when dal_slovo(ch, s);
+    then duty DerzhatSlovo {
+        bearer ch;
+        goal achievement {
+            condition slovo_ispolneno(s);
+            window [@1000-01-01, infinity);
+        }
+    };
+}
