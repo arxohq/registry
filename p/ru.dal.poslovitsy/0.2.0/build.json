@@ -1,0 +1,96 @@
+{
+  "compilerHash": "sha256:7b05f8c2de519c835c13aa35f3833624b5c46771fa853873e82d12bbf50000e0",
+  "dependencies": [],
+  "format": "law.package-build/0.3",
+  "package": {
+    "contentHash": "sha256:bbd1099610a5f3ff74799eed1fc5c34a6b60595173baeb06cc524a232d229cbc",
+    "features": [
+      "core-executable"
+    ],
+    "name": "ru.dal.poslovitsy",
+    "namespace": "urn:ru:dal:clir:poslovitsy",
+    "registryId": "arxo",
+    "resolverUri": "registry://arxo/ru.dal.poslovitsy/0.2.0",
+    "version": "0.2.0"
+  },
+  "runnerHash": "sha256:1688ecb9ea3f4a53158908e1d361e679d474cebe28e5e60e7c8ada9b3d08fb33",
+  "suites": [
+    {
+      "path": "tests/01-osuzhdyonnomu-kazn-dopustima.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/02-bez-suda-kazn-nedopustima.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/03-kholop-na-boyarina-ne-poslukh.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/04-kholop-na-kholopa-poslukh.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/05-brat-bratu-golovoy.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/06-ne-poyman-ne-vor.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/07-poyman-prezumptsiya-oprokinuta.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/08-ugovor-bez-deneg-both.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/09-povinnuyu-golovu-mech-ne-sechet.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/10-menshoy-syn-na-kornyu.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/11-isttsu-pervoe-slovo.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/12-otvetchiku-poslednee-slovo.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/13-lezhachego-ne-byut.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/14-chuzhoe-ispolnenie-ne-derzhit-slovo.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/15-rodovaya-otvetstvennost-bez-starogo-obychaya.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/16-menshoy-syn-vne-krestyanskogo-hozyaystva.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/17-neizvestnost-oplaty-ne-neuplata.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/18-proshchennaya-vina-ne-karaetsya.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "tests/poslovitsy.lawtest",
+      "tests": 44
+    }
+  ],
+  "tests": 62
+}

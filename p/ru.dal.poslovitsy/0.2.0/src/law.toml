@@ -1,0 +1,53 @@
+# Манифест §10 — маркер корня пакета (DECISION-0033). Нормативны заголовки §22
+# в самих .law; манифест обязан с ними совпадать (LDC-E1109, lawc check).
+[package]
+name = "ru.dal.poslovitsy"
+version = "0.2.0"
+language = "0.2"
+namespace = "urn:ru:dal:clir:poslovitsy"
+
+# Каталожная метадата §10 `[metadata]` (DECISION-0051). Обязательна: без неё
+# MCP штамповал бы «Республика Казахстан» на ответы про русский обычай.
+[metadata]
+title = "Юридический пласт «Пословиц русского народа» Даля: пословица как норма — процесс, доказательства, ответственность, владение, уговор, кара"
+primarySource = "DAL_POSLOVITSY"
+
+# Выводимые. Совпадение с sources.law держат ворота, а не эти строки.
+# jurisdiction: RU — пословицы записывают живое обычное право крестьянской
+# России; Империю и современность различает дата источника, а не код
+# (довод словаря JURISDICTIONS). Часть пословиц Даль сам метит «(зак.)» —
+# совпадением с писаным законом, а одну возводит к Русской Правде
+# («Прав.» Яросл.); это записанное обычное право реального правопорядка,
+# а не диегетическое, — в отличие от «Репки» с её jurisdiction "none".
+jurisdiction = "RU"
+instrument = "custom_law"
+sourceFidelity = "pinned_unofficial_copy"
+
+# Невыводимые.
+# issuer: у обычая установителя нет по определению; назван свидетель —
+# собиратель, чья запись закреплена.
+issuer = "обычай без установителя (запись — В. И. Даль, «Пословицы русского народа», 2-е изд., 1879)"
+# legalStatus: `custom`, как у zheti-zhargy, — записанное обычное право, а не
+# памятник писаного (historical_monument — у Русской Правды и Табели). Сам
+# Даль метит часть норм «(стар.)» — вышедшими из обихода уже к 1879 году, а
+# сословные (послух, вотчина) умерли вместе со своими институтами; это
+# записано здесь, словаря статуса «мёртвый обычай» у схемы нет.
+legalStatus = "custom"
+# verifiedAgainstSource: false — закреплены байты русской Викитеки (по одной
+# фиксированной ревизии на раздел), а не издания 1879 года; сверка с ним
+# корпусу недоступна.
+verifiedAgainstSource = false
+
+# Рукописные сценарии пакета: исполняются общим раннером,
+# в учёт покрытия регрессии не входят.
+[[tests]]
+family = "ru.dal.poslovitsy#authored"
+regression = false
+suites = ["tests/01-osuzhdyonnomu-kazn-dopustima.lawtest", "tests/02-bez-suda-kazn-nedopustima.lawtest", "tests/03-kholop-na-boyarina-ne-poslukh.lawtest", "tests/04-kholop-na-kholopa-poslukh.lawtest", "tests/05-brat-bratu-golovoy.lawtest", "tests/06-ne-poyman-ne-vor.lawtest", "tests/07-poyman-prezumptsiya-oprokinuta.lawtest", "tests/08-ugovor-bez-deneg-both.lawtest", "tests/09-povinnuyu-golovu-mech-ne-sechet.lawtest", "tests/10-menshoy-syn-na-kornyu.lawtest", "tests/11-isttsu-pervoe-slovo.lawtest", "tests/12-otvetchiku-poslednee-slovo.lawtest", "tests/13-lezhachego-ne-byut.lawtest", "tests/14-chuzhoe-ispolnenie-ne-derzhit-slovo.lawtest", "tests/15-rodovaya-otvetstvennost-bez-starogo-obychaya.lawtest", "tests/16-menshoy-syn-vne-krestyanskogo-hozyaystva.lawtest", "tests/17-neizvestnost-oplaty-ne-neuplata.lawtest", "tests/18-proshchennaya-vina-ne-karaetsya.lawtest"]
+world = ["ru.dal.poslovitsy"]
+
+# Сценарии пакета: единственный источник фактов, вопросов и ожиданий.
+[[tests]]
+family = "poslovitsy"
+suites = ["tests/poslovitsy.lawtest"]
+world = ["ru.dal.poslovitsy"]

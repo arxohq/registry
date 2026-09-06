@@ -1,0 +1,18 @@
+language "law.core" version "0.1";
+package ru.dal.poslovitsy version "0.2.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+// Савва исполнил своё действие по той же сделке, но слово дал Макар. Чужое
+// исполнение не должно закрывать обязанность Макара.
+test "urn:query:dp-chuzhoe-ispolnenie-ne-derzhit-slovo" {
+    given {
+        context { decision_time @2026-08-31T12:00:00Z; knowledge_time @2026-08-31T12:00:00Z; legal_time @1879-06-01; timezone "UTC"; }
+        assert dal_slovo(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#SdelkaOLoshadi")) { id "dp17b-1"; origin case_input; }
+        assert slovo_ispolneno(entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#SdelkaOLoshadi")) { id "dp17b-2"; origin case_input; }
+    }
+    evaluate positions();
+    expect result_kind == NORM_POSITION;
+    expect normative_status == ACTIVE;
+    expect applicability_status == APPLICABLE;
+    expect evaluation_status == COMPUTED;
+}

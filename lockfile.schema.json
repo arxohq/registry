@@ -104,7 +104,8 @@
           "enum": [
             "parameter-dataset",
             "decision-table",
-            "label-overlay"
+            "label-overlay",
+            "calendar-dataset"
           ]
         },
         "path": {
@@ -116,10 +117,11 @@
           "$ref": "#/$defs/Digest"
         },
         "capability": {
-          "description": "A3-ресурсы участвуют в компиляции (compile_time); оверлеи меток §218 — презентационный слой вне CLIR (presentation, DECISION-0070).",
+          "description": "A3-ресурсы участвуют в компиляции (compile_time); оверлеи меток §218 — презентационный слой вне CLIR (presentation, DECISION-0070); наборы календаря §85 разрешаются при исполнении (law.calendar/0.1, DECISION-0110).",
           "enum": [
             "compile_time",
-            "presentation"
+            "presentation",
+            "law.calendar/0.1"
           ]
         }
       },

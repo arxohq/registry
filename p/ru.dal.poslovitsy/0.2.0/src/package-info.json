@@ -1,0 +1,11 @@
+{
+  "format": "law.package-info/0.1",
+  "purpose": "Исследование формализованных пословиц Даля и их выводов на тестовых примерах.",
+  "limitations": [
+    "Назначение описано сопровождающим; наличие тестов не означает полного охвата источника."
+  ],
+  "examples": [
+    "tests/01-osuzhdyonnomu-kazn-dopustima.lawtest",
+    "tests/02-bez-suda-kazn-nedopustima.lawtest"
+  ]
+}

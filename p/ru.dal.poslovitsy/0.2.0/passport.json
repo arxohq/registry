@@ -1,0 +1,1740 @@
+{
+  "checks": {
+    "build": {
+      "compilerHash": "sha256:7b05f8c2de519c835c13aa35f3833624b5c46771fa853873e82d12bbf50000e0",
+      "evidence": "build.json",
+      "outcome": "passed",
+      "scope": "Recorded build assertions; not a fresh verification",
+      "suites": [
+        {
+          "path": "tests/01-osuzhdyonnomu-kazn-dopustima.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/02-bez-suda-kazn-nedopustima.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/03-kholop-na-boyarina-ne-poslukh.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/04-kholop-na-kholopa-poslukh.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/05-brat-bratu-golovoy.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/06-ne-poyman-ne-vor.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/07-poyman-prezumptsiya-oprokinuta.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/08-ugovor-bez-deneg-both.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/09-povinnuyu-golovu-mech-ne-sechet.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/10-menshoy-syn-na-kornyu.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/11-isttsu-pervoe-slovo.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/12-otvetchiku-poslednee-slovo.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/13-lezhachego-ne-byut.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/14-chuzhoe-ispolnenie-ne-derzhit-slovo.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/15-rodovaya-otvetstvennost-bez-starogo-obychaya.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/16-menshoy-syn-vne-krestyanskogo-hozyaystva.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/17-neizvestnost-oplaty-ne-neuplata.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/18-proshchennaya-vina-ne-karaetsya.lawtest",
+          "tests": 1
+        },
+        {
+          "path": "tests/poslovitsy.lawtest",
+          "tests": 44
+        }
+      ],
+      "tests": 62
+    },
+    "formalizationCoverage": {
+      "outcome": "not_run",
+      "reason": "Requires a pinned article-level report"
+    },
+    "origin": "derived",
+    "performance": {
+      "outcome": "not_run",
+      "reason": "Measured in separate immutable reports"
+    }
+  },
+  "composition": {
+    "nodeCounts": {
+      "fragment": 33,
+      "norm_template": 2,
+      "priority_rule": 5,
+      "publication": 4,
+      "rule": 37,
+      "source_edition": 4,
+      "source_work": 1,
+      "symbol_decl": 72,
+      "type_decl": 5
+    },
+    "origin": "derived",
+    "packageBytes": 125873,
+    "sourceBytes": 167138,
+    "worldBytes": 125873,
+    "worldHash": "sha256:bbd1099610a5f3ff74799eed1fc5c34a6b60595173baeb06cc524a232d229cbc"
+  },
+  "dependencies": {
+    "declared": {},
+    "locked": [],
+    "origin": "derived"
+  },
+  "description": {
+    "info": {
+      "examples": [
+        "tests/01-osuzhdyonnomu-kazn-dopustima.lawtest",
+        "tests/02-bez-suda-kazn-nedopustima.lawtest"
+      ],
+      "format": "law.package-info/0.1",
+      "limitations": [
+        "Назначение описано сопровождающим; наличие тестов не означает полного охвата источника."
+      ],
+      "purpose": "Исследование формализованных пословиц Даля и их выводов на тестовых примерах."
+    },
+    "metadata": {
+      "instrument": "custom_law",
+      "issuer": "обычай без установителя (запись — В. И. Даль, «Пословицы русского народа», 2-е изд., 1879)",
+      "jurisdiction": "RU",
+      "legalStatus": "custom",
+      "primarySource": "DAL_POSLOVITSY",
+      "sourceFidelity": "pinned_unofficial_copy",
+      "title": "Юридический пласт «Пословиц русского народа» Даля: пословица как норма — процесс, доказательства, ответственность, владение, уговор, кара",
+      "verifiedAgainstSource": false
+    },
+    "origin": "declared"
+  },
+  "evidence": [
+    {
+      "hash": "sha256:bbd1099610a5f3ff74799eed1fc5c34a6b60595173baeb06cc524a232d229cbc",
+      "path": "package.lawir.json"
+    },
+    {
+      "hash": "sha256:394f9bdd2753a197b6d0fea544068425dd197fe0927dbb71fc3f70c017d332ab",
+      "path": "source.json"
+    },
+    {
+      "hash": "sha256:82cdf72d33c39ef6c79eda78ebb6ff55e35d2994030ef3c968c6350ad48fcb02",
+      "path": "build.json"
+    },
+    {
+      "hash": "sha256:6f90b710475fdd31d1d0844698ac6ee4cdca9b3d87695278b98f06ecc811cd08",
+      "path": "replay.json"
+    }
+  ],
+  "format": "law.package-passport/0.1",
+  "interface": {
+    "evidence": "package.lawir.json",
+    "examples": [
+      {
+        "hash": "sha256:15be347dd8ef3c4f6ab4a10e78370bface1777d0b13a535625ce7eb2bdcdc3da",
+        "path": "tests/01-osuzhdyonnomu-kazn-dopustima.lawtest",
+        "text": "language \"law.core\" version \"0.1\";\npackage ru.dal.poslovitsy version \"0.2.0\";\nnamespace \"urn:ru:dal:clir:poslovitsy\";\n\n// Осуждённый судом: разрешение «по суду казнят» побеждает общий запрет\n// приоритетом lex specialis — казнь допустима.\ntest \"urn:query:dp-osuzhdyonnomu-kazn-dopustima\" {\n    given {\n        context { decision_time @2026-08-29T12:00:00Z; knowledge_time @2026-08-29T12:00:00Z; legal_time @1879-06-01; timezone \"UTC\"; }\n        assert obvinyon(entity_ref(\"urn:ru:dal:clir:poslovitsy#Emelyan\"), entity_ref(\"urn:ru:dal:clir:poslovitsy#DeloORazboe\")) { id \"dp01-1\"; origin case_input; }\n        assert osuzhden_sudom(entity_ref(\"urn:ru:dal:clir:poslovitsy#Emelyan\"), entity_ref(\"urn:ru:dal:clir:poslovitsy#DeloORazboe\")) { id \"dp01-2\"; origin case_input; }\n    }\n    evaluate truth(kazn_dopustima(entity_ref(\"urn:ru:dal:clir:poslovitsy#Emelyan\"), entity_ref(\"urn:ru:dal:clir:poslovitsy#DeloORazboe\")));\n    expect result_kind == PROPOSITION;\n    expect truth_status == TRUE_ONLY;\n    expect evaluation_status == COMPUTED;\n}\n"
+      },
+      {
+        "hash": "sha256:5250107fc92faab396c5c849c316a296c593f24b98fb4a77a413e1e12e34fc9b",
+        "path": "tests/02-bez-suda-kazn-nedopustima.lawtest",
+        "text": "language \"law.core\" version \"0.1\";\npackage ru.dal.poslovitsy version \"0.2.0\";\nnamespace \"urn:ru:dal:clir:poslovitsy\";\n\n// Обвинённый БЕЗ суда: работает только общий запрет «без суда не казнят» —\n// казнь недопустима (FALSE_ONLY, а не молчание: пословица запрещает).\ntest \"urn:query:dp-bez-suda-kazn-nedopustima\" {\n    given {\n        context { decision_time @2026-08-29T12:00:00Z; knowledge_time @2026-08-29T12:00:00Z; legal_time @1879-06-01; timezone \"UTC\"; }\n        assert obvinyon(entity_ref(\"urn:ru:dal:clir:poslovitsy#Emelyan\"), entity_ref(\"urn:ru:dal:clir:poslovitsy#DeloORazboe\")) { id \"dp02-1\"; origin case_input; }\n    }\n    evaluate truth(kazn_dopustima(entity_ref(\"urn:ru:dal:clir:poslovitsy#Emelyan\"), entity_ref(\"urn:ru:dal:clir:poslovitsy#DeloORazboe\")));\n    expect result_kind == PROPOSITION;\n    expect truth_status == FALSE_ONLY;\n    expect evaluation_status == COMPUTED;\n}\n"
+      }
+    ],
+    "exports": [],
+    "factGroups": {},
+    "origin": "derived",
+    "querySignatures": [
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#boyarin",
+        "name": "boyarin",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#boyarin/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#brat",
+        "name": "brat",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#brat/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#brat/arg/bratu",
+            "name": "bratu",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#chist_ot_tatby",
+        "name": "chist_ot_tatby",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#chist_ot_tatby/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#dal_slovo",
+        "name": "dal_slovo",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#dal_slovo/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#dal_slovo/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#dan_uplachena",
+        "name": "dan_uplachena",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#dan_uplachena/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#dan_uplachena/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#delo_podlezhit_treteyskomu",
+        "name": "delo_podlezhit_treteyskomu",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#delo_podlezhit_treteyskomu/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#delo_reshayetsya_po_zakonu",
+        "name": "delo_reshayetsya_po_zakonu",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#delo_reshayetsya_po_zakonu/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#dengi_ne_uplacheny",
+        "name": "dengi_ne_uplacheny",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#dengi_ne_uplacheny/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#dengi_uplacheny",
+        "name": "dengi_uplacheny",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#dengi_uplacheny/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#doch",
+        "name": "doch",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#doch/arg/doch",
+            "name": "doch",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#doch/arg/otets",
+            "name": "otets",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#falsh_po_sdelke",
+        "name": "falsh_po_sdelke",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#falsh_po_sdelke/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#falsh_po_sdelke/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#istets",
+        "name": "istets",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#istets/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#istets/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#kara_ponesena",
+        "name": "kara_ponesena",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#kara_ponesena/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#kara_ponesena/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#kazn_dopustima",
+        "name": "kazn_dopustima",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#kazn_dopustima/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#kazn_dopustima/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#khleb_prinadlezhit",
+        "name": "khleb_prinadlezhit",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#khleb_prinadlezhit/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#khleb_prinadlezhit/arg/zemlya",
+            "name": "zemlya",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Zemlya"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#kholop",
+        "name": "kholop",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#kholop/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#krepost_staree",
+        "name": "krepost_staree",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#krepost_staree/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#krepost_staree/arg/chem_u",
+            "name": "chem_u",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#krepost_staree/arg/zemlya",
+            "name": "zemlya",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Zemlya"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#krestyanskoe_domokhozyaystvo",
+        "name": "krestyanskoe_domokhozyaystvo",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#krestyanskoe_domokhozyaystvo/arg/otets",
+            "name": "otets",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#lezhachiy",
+        "name": "lezhachiy",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#lezhachiy/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#lezhachiy/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#menshoy_syn",
+        "name": "menshoy_syn",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#menshoy_syn/arg/syn",
+            "name": "syn",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#menshoy_syn/arg/otets",
+            "name": "otets",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#nasledstvo_otkrylos",
+        "name": "nasledstvo_otkrylos",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#nasledstvo_otkrylos/arg/otets",
+            "name": "otets",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#nasleduet_domom",
+        "name": "nasleduet_domom",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#nasleduet_domom/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#nasleduet_domom/arg/otets",
+            "name": "otets",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#naznachen_sudyoy",
+        "name": "naznachen_sudyoy",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#naznachen_sudyoy/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#naznachen_sudyoy/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#ne_podlezhit_peresmotru",
+        "name": "ne_podlezhit_peresmotru",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#ne_podlezhit_peresmotru/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#obvinyon",
+        "name": "obvinyon",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#obvinyon/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#obvinyon/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#ogovorka_ili_obmolvka",
+        "name": "ogovorka_ili_obmolvka",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#ogovorka_ili_obmolvka/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#ogovorka_ili_obmolvka/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#osuzhden_sudom",
+        "name": "osuzhden_sudom",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#osuzhden_sudom/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#osuzhden_sudom/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#otvetchik",
+        "name": "otvetchik",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#otvetchik/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#otvetchik/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#peregovory",
+        "name": "peregovory",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#peregovory/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#peregovory/arg/s_kem",
+            "name": "s_kem",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#peregovory/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#perveet_v_spore",
+        "name": "perveet_v_spore",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#perveet_v_spore/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#perveet_v_spore/arg/zemlya",
+            "name": "zemlya",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Zemlya"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#pervoe_slovo",
+        "name": "pervoe_slovo",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#pervoe_slovo/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#pervoe_slovo/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#podlezhit_kare",
+        "name": "podlezhit_kare",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#podlezhit_kare/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#podlezhit_kare/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#podlezhit_otvodu",
+        "name": "podlezhit_otvodu",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#podlezhit_otvodu/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#podlezhit_otvodu/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#podozrevaetsya",
+        "name": "podozrevaetsya",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#podozrevaetsya/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#polichnoe_obnaruzheno",
+        "name": "polichnoe_obnaruzheno",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#polichnoe_obnaruzheno/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#polichnoe_obnaruzheno/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#polichnoe_pervichnoe_dokazatelstvo",
+        "name": "polichnoe_pervichnoe_dokazatelstvo",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#polichnoe_pervichnoe_dokazatelstvo/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#polichnoe_pervichnoe_dokazatelstvo/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#polichnoe_silnee_priznaniya",
+        "name": "polichnoe_silnee_priznaniya",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#polichnoe_silnee_priznaniya/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#polichnoe_silnee_priznaniya/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#poslednee_slovo",
+        "name": "poslednee_slovo",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#poslednee_slovo/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#poslednee_slovo/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#poslukh",
+        "name": "poslukh",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#poslukh/arg/svidetel",
+            "name": "svidetel",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#poslukh/arg/protiv",
+            "name": "protiv",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#poslukh/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#povinilsya",
+        "name": "povinilsya",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#povinilsya/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#povinilsya/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#poyman_s_polichnym",
+        "name": "poyman_s_polichnym",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#poyman_s_polichnym/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#pravo_byt_vyslushannym",
+        "name": "pravo_byt_vyslushannym",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#pravo_byt_vyslushannym/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#pravo_byt_vyslushannym/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#prityazaet",
+        "name": "prityazaet",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#prityazaet/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#prityazaet/arg/zemlya",
+            "name": "zemlya",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Zemlya"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#priznanie_dano",
+        "name": "priznanie_dano",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#priznanie_dano/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#priznanie_dano/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#priznanie_silnee_svidetelstva",
+        "name": "priznanie_silnee_svidetelstva",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#priznanie_silnee_svidetelstva/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#priznanie_silnee_svidetelstva/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#rassmatrivaetsya_sudom",
+        "name": "rassmatrivaetsya_sudom",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#rassmatrivaetsya_sudom/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#resheno_sudom",
+        "name": "resheno_sudom",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#resheno_sudom/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#rodovaya_otvetstvennost_primenima",
+        "name": "rodovaya_otvetstvennost_primenima",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#rodovaya_otvetstvennost_primenima/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#slovo_ispolneno",
+        "name": "slovo_ispolneno",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#slovo_ispolneno/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#slovo_ispolneno/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#staryy_nasledstvennyy_obychay_primenim",
+        "name": "staryy_nasledstvennyy_obychay_primenim",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#staryy_nasledstvennyy_obychay_primenim/arg/otets",
+            "name": "otets",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#storona",
+        "name": "storona",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#storona/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#storona/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#sudya_podlezhit_nadzoru",
+        "name": "sudya_podlezhit_nadzoru",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#sudya_podlezhit_nadzoru/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#sudya_podlezhit_nadzoru/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#svidetelskoe_pokazanie_dano",
+        "name": "svidetelskoe_pokazanie_dano",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#svidetelskoe_pokazanie_dano/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#svidetelskoe_pokazanie_dano/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#svidetelstvuet",
+        "name": "svidetelstvuet",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#svidetelstvuet/arg/svidetel",
+            "name": "svidetel",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#svidetelstvuet/arg/protiv",
+            "name": "protiv",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#svidetelstvuet/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#svyazan",
+        "name": "svyazan",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#svyazan/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#svyazan/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#syn",
+        "name": "syn",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#syn/arg/syn",
+            "name": "syn",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#syn/arg/otets",
+            "name": "otets",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#treteyskoe_soglashenie",
+        "name": "treteyskoe_soglashenie",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#treteyskoe_soglashenie/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#tsar",
+        "name": "tsar",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#tsar/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#uchastnik_boya",
+        "name": "uchastnik_boya",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#uchastnik_boya/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#uchastnik_boya/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#udaril_lezhachego",
+        "name": "udaril_lezhachego",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#udaril_lezhachego/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#udaril_lezhachego/arg/lezhachego",
+            "name": "lezhachego",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#udaril_lezhachego/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#ugovor_zaklyuchen",
+        "name": "ugovor_zaklyuchen",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#ugovor_zaklyuchen/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#ugovor_zaklyuchen/arg/s_kem",
+            "name": "s_kem",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#ugovor_zaklyuchen/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#upolnomochen_karat_i_milovat",
+        "name": "upolnomochen_karat_i_milovat",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#upolnomochen_karat_i_milovat/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#uslovie_obyazatelno",
+        "name": "uslovie_obyazatelno",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#uslovie_obyazatelno/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#uslovie_obyazatelno/arg/uslovie",
+            "name": "uslovie",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Uslovie"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#uslovie_soglasovano",
+        "name": "uslovie_soglasovano",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#uslovie_soglasovano/arg/sdelka",
+            "name": "sdelka",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Sdelka"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#uslovie_soglasovano/arg/uslovie",
+            "name": "uslovie",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Uslovie"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#v_dele",
+        "name": "v_dele",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#v_dele/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#v_dele/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#v_otvete",
+        "name": "v_otvete",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#v_otvete/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#v_otvete/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#vina_proshchena",
+        "name": "vina_proshchena",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#vina_proshchena/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#vina_proshchena/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#vinoven",
+        "name": "vinoven",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#vinoven/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#vinoven/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#vladeet",
+        "name": "vladeet",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#vladeet/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#vladeet/arg/zemlya",
+            "name": "zemlya",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Zemlya"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#vor",
+        "name": "vor",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#vor/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#votchinnitsa",
+        "name": "votchinnitsa",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#votchinnitsa/arg/doch",
+            "name": "doch",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#votchinnitsa/arg/otets",
+            "name": "otets",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      },
+      {
+        "id": "urn:ru:dal:clir:poslovitsy#vtoraya_dan_nedopustima",
+        "name": "vtoraya_dan_nedopustima",
+        "parameters": [
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#vtoraya_dan_nedopustima/arg/chelovek",
+            "name": "chelovek",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Chelovek"
+            }
+          },
+          {
+            "id": "urn:ru:dal:clir:poslovitsy#vtoraya_dan_nedopustima/arg/delo",
+            "name": "delo",
+            "type": {
+              "name": "urn:ru:dal:clir:poslovitsy#Delo"
+            }
+          }
+        ],
+        "symbolKind": "relation"
+      }
+    ]
+  },
+  "semantics": {
+    "features": [
+      "core-executable"
+    ],
+    "language": "0.2",
+    "missingFacts": "See the declared profile and executable examples; no package-wide inference.",
+    "origin": "derived",
+    "profile": {}
+  },
+  "sources": {
+    "evidence": "package.lawir.json",
+    "origin": "derived",
+    "verifiedAgainstSource": {
+      "origin": "declared",
+      "value": false
+    },
+    "worksAndEditions": [
+      {
+        "contentHash": "sha256:b7b45dd60370be0c1ddec1e5a8dc0740f3ee2c630e67768b1790809a8fdb5ab8",
+        "id": "urn:ru:dal:clir:poslovitsy#DAL_KARA_PRIZNANIE",
+        "kind": "source_edition",
+        "labels": [
+          {
+            "language": "ru",
+            "status": "official",
+            "text": "Раздел «Кара — признание — покорность»: кара за вину и её смягчение повинной"
+          }
+        ],
+        "language": "ru",
+        "lifecycle": [
+          {
+            "extent": "1879-01-01",
+            "status": "adopted"
+          }
+        ],
+        "materializationStatus": "PINNED_UNOFFICIAL_COPY",
+        "officiality": "unofficial",
+        "package": "urn:ru:dal:clir:poslovitsy",
+        "work": "urn:ru:dal:clir:poslovitsy#DAL_POSLOVITSY"
+      },
+      {
+        "contentHash": "sha256:6ad415c4bfac4b7c799693b6bc57f7a96424aaeef50b168790e48e89ad2fdefa",
+        "id": "urn:ru:dal:clir:poslovitsy#DAL_POSLOVITSY",
+        "jurisdiction": {
+          "kind": "value",
+          "type": {
+            "name": "urn:law:std#Text"
+          },
+          "value": "RU"
+        },
+        "kind": "source_work",
+        "labels": [
+          {
+            "language": "ru",
+            "status": "official",
+            "text": "Юридический пласт «Пословиц русского народа» В. И. Даля: суд, доказательства, ответственность, владение, уговор, кара"
+          }
+        ],
+        "number": "Даль, «Пословицы русского народа», 2-е изд., 1879",
+        "package": "urn:ru:dal:clir:poslovitsy",
+        "sourceKind": "urn:ru:dal:clir:poslovitsy#custom_law"
+      },
+      {
+        "contentHash": "sha256:7840ac947697eb42f1c8b3339f0f1d4664dd4fe48df389d71e7a5580c7058479",
+        "id": "urn:ru:dal:clir:poslovitsy#DAL_PRAVDA_NEPRAVDA",
+        "kind": "source_edition",
+        "labels": [
+          {
+            "language": "ru",
+            "status": "official",
+            "text": "Раздел «Правда — неправда — ложь»: презумпция «Не пойман — не вор»"
+          }
+        ],
+        "language": "ru",
+        "lifecycle": [
+          {
+            "extent": "1879-01-01",
+            "status": "adopted"
+          }
+        ],
+        "materializationStatus": "PINNED_UNOFFICIAL_COPY",
+        "officiality": "unofficial",
+        "package": "urn:ru:dal:clir:poslovitsy",
+        "work": "urn:ru:dal:clir:poslovitsy#DAL_POSLOVITSY"
+      },
+      {
+        "contentHash": "sha256:2a1ea8769557ffb6fe9b7d9dbdaf524c325e0dbea1ba26247bab3614656d1420",
+        "id": "urn:ru:dal:clir:poslovitsy#DAL_SUD_PRAVDA",
+        "kind": "source_edition",
+        "labels": [
+          {
+            "language": "ru",
+            "status": "official",
+            "text": "Раздел «Суд — правда»: процесс, допустимость послуха, личная и родовая ответственность, владение и наследование"
+          }
+        ],
+        "language": "ru",
+        "lifecycle": [
+          {
+            "extent": "1879-01-01",
+            "status": "adopted"
+          }
+        ],
+        "materializationStatus": "PINNED_UNOFFICIAL_COPY",
+        "officiality": "unofficial",
+        "package": "urn:ru:dal:clir:poslovitsy",
+        "work": "urn:ru:dal:clir:poslovitsy#DAL_POSLOVITSY"
+      },
+      {
+        "contentHash": "sha256:0c521008394cfddd8d98273771704148d1ca37896db923a69c30042eea3056e7",
+        "id": "urn:ru:dal:clir:poslovitsy#DAL_USLOVIE_OBMAN",
+        "kind": "source_edition",
+        "labels": [
+          {
+            "language": "ru",
+            "status": "official",
+            "text": "Раздел «Условие — обман»: сила уговора и данного слова"
+          }
+        ],
+        "language": "ru",
+        "lifecycle": [
+          {
+            "extent": "1879-01-01",
+            "status": "adopted"
+          }
+        ],
+        "materializationStatus": "PINNED_UNOFFICIAL_COPY",
+        "officiality": "unofficial",
+        "package": "urn:ru:dal:clir:poslovitsy",
+        "work": "urn:ru:dal:clir:poslovitsy#DAL_POSLOVITSY"
+      }
+    ]
+  },
+  "subject": {
+    "buildHash": "sha256:82cdf72d33c39ef6c79eda78ebb6ff55e35d2994030ef3c968c6350ad48fcb02",
+    "contentHash": "sha256:bbd1099610a5f3ff74799eed1fc5c34a6b60595173baeb06cc524a232d229cbc",
+    "name": "ru.dal.poslovitsy",
+    "namespace": "urn:ru:dal:clir:poslovitsy",
+    "replayHash": "sha256:6f90b710475fdd31d1d0844698ac6ee4cdca9b3d87695278b98f06ecc811cd08",
+    "sourceHash": "sha256:394f9bdd2753a197b6d0fea544068425dd197fe0927dbb71fc3f70c017d332ab",
+    "version": "0.2.0"
+  }
+}

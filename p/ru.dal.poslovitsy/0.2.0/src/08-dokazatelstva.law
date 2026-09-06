@@ -1,0 +1,59 @@
+// Иерархия доказательств в двух разделах Даля: «Поличное первый свидетель»,
+// «Поличное — пуще сознания» и «Признание паче всякого свидетельства».
+//
+// Два сравнения не склеиваются в один абсолютный рейтинг. Даль отдельно
+// ставит поличное выше признания и признание выше свидетельства; пакет
+// выводит ровно эти две пары. Транзитивного «поличное выше свидетельства»
+// текст не формулирует, и правило его не дописывает.
+
+language "law.core" version "0.2";
+package ru.dal.poslovitsy version "0.2.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+relation polichnoe_obnaruzheno(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "по делу у человека обнаружено поличное";
+}
+
+relation priznanie_dano(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек дал признание по делу";
+}
+
+relation svidetelskoe_pokazanie_dano(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "против человека дано свидетельское показание";
+}
+
+relation polichnoe_pervichnoe_dokazatelstvo(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "поличное признаётся первичным доказательством по делу";
+}
+
+relation polichnoe_silnee_priznaniya(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "поличное по делу сильнее признания";
+}
+
+relation priznanie_silnee_svidetelstva(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "признание по делу сильнее свидетельского показания";
+}
+
+@source(DP_F_POLICHNOE)
+rule PolichnoePervyySvidetel strict {
+    label ru official "Поличное признаётся первичным доказательством";
+    for ch: Chelovek; for d: Delo;
+    when polichnoe_obnaruzheno(ch, d);
+    then polichnoe_pervichnoe_dokazatelstvo(ch, d);
+}
+
+@source(DP_F_POLICHNOE)
+rule PolichnoePusheSoznaniya strict {
+    label ru official "При наличии поличного и признания поличное сильнее";
+    for ch: Chelovek; for d: Delo;
+    when polichnoe_obnaruzheno(ch, d) and priznanie_dano(ch, d);
+    then polichnoe_silnee_priznaniya(ch, d);
+}
+
+@source(DP_F_PRIZNANIE_PACHE)
+rule PriznaniePacheSvidetelstva strict {
+    label ru official "При признании и свидетельском показании признание сильнее";
+    for ch: Chelovek; for d: Delo;
+    when priznanie_dano(ch, d) and svidetelskoe_pokazanie_dano(ch, d);
+    then priznanie_silnee_svidetelstva(ch, d);
+}

@@ -1,0 +1,231 @@
+// Суд и процесс: «Без суда не казнят», «Судов не пересужать», «Никто сам в
+// своем деле судьею быть не может», «Истцу первое слово, ответчику
+// последнее», «Лежачего не бьют», а также надзор, право быть выслушанным,
+// законность и третейское разбирательство.
+//
+// «БЕЗ СУДА НЕ КАЗНЯТ» — ПАРА ПРАВИЛ С ПРИОРИТЕТОМ, А НЕ ОДНО. Пословица
+// (помета Даля «(зак.)» — совпадает с писаным законом) говорит две вещи
+// сразу: по умолчанию казнь НЕдопустима, и только суд снимает этот запрет.
+// Одно позитивное правило «осуждён → казнь допустима» выразило бы лишь
+// вторую половину: на неосуждённом запрос молчал бы (NEITHER), а пословица
+// не молчит — она запрещает. Поэтому запрет записан своим правилом, а
+// разрешение побеждает его приоритетом lex specialis: суд — названное
+// исключение из общего запрета. «Самосуд — не суд» стоит вторым якорем на
+// ОБЩЕМ ЗАПРЕТЕ сознательно: расправа без суда остаётся под ним — самосуд
+// названного исключения не образует.
+//
+// «СУДОВ НЕ ПЕРЕСУЖАТЬ» — ПОЗИТИВНАЯ ГОЛОВА. Res judicata записана выводом
+// «дело не подлежит пересмотру», а не запретом-деонтикой: у пословицы нет
+// адресата-носителя (кому запрещено?), и выдумать ему bearer значило бы
+// дописать норму. Institutional-вывод о ДЕЛЕ — ровно то, что сказано.
+//
+// «ЛЕЖАЧЕГО НЕ БЬЮТ» — ЕДИНСТВЕННАЯ ДЕОНТИКА МОДУЛЯ, потому что здесь
+// носитель В ТЕКСТЕ ЕСТЬ: запрет обращён к участнику боя («от кулачных
+// боев» — помета Даля), и §190 связывает его фактом участия.
+
+language "law.core" version "0.2";
+package ru.dal.poslovitsy version "0.2.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+// --- Словарь модуля ----------------------------------------------------------
+
+relation obvinyon(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек обвиняется по делу";
+}
+
+relation osuzhden_sudom(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "человек осуждён судом по делу";
+}
+
+relation resheno_sudom(delo: Delo) kind institutional {
+    label ru official "по делу состоялось решение суда";
+}
+
+relation kazn_dopustima(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "казнь (наказание) человека по делу допустима";
+}
+
+relation ne_podlezhit_peresmotru(delo: Delo) kind institutional {
+    label ru official "решённое дело не подлежит пересмотру («не пересужать»)";
+}
+
+relation storona(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек — сторона дела";
+}
+
+relation naznachen_sudyoy(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек поставлен судьёй по делу";
+}
+
+relation podlezhit_otvodu(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "судья подлежит отводу от дела";
+}
+
+relation istets(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек — истец по делу";
+}
+
+relation otvetchik(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек — ответчик по делу";
+}
+
+relation pervoe_slovo(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "человеку принадлежит первое слово в деле";
+}
+
+relation poslednee_slovo(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "человеку принадлежит последнее слово в деле";
+}
+
+relation uchastnik_boya(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек — участник кулачного боя";
+}
+
+relation lezhachiy(chelovek: Chelovek, delo: Delo) kind empirical {
+    label ru official "человек лежит — выбыл из боя";
+}
+
+relation udaril_lezhachego(chelovek: Chelovek, lezhachego: Chelovek, delo: Delo) kind empirical {
+    label ru official "участник ударил лежачего";
+}
+
+relation sudya_podlezhit_nadzoru(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "судья по делу подлежит надзору";
+}
+
+relation pravo_byt_vyslushannym(chelovek: Chelovek, delo: Delo) kind institutional {
+    label ru official "обвиняемый вправе быть выслушанным до наказания";
+}
+
+relation rassmatrivaetsya_sudom(delo: Delo) kind empirical {
+    label ru official "дело рассматривается судом";
+}
+
+relation delo_reshayetsya_po_zakonu(delo: Delo) kind institutional {
+    label ru official "дело подлежит решению по закону";
+}
+
+relation treteyskoe_soglashenie(delo: Delo) kind empirical {
+    label ru official "стороны передали дело на третейское разрешение";
+}
+
+relation delo_podlezhit_treteyskomu(delo: Delo) kind institutional {
+    label ru official "дело подлежит третейскому разрешению";
+}
+
+// --- Судья суди, да и за судьей гляди --------------------------------------
+
+@source(DP_F_SUDYA_NADZOR)
+rule ZaSudyoyGlyadi strict {
+    label ru official "Поставленный по делу судья подлежит надзору";
+    for ch: Chelovek; for d: Delo;
+    when naznachen_sudyoy(ch, d);
+    then sudya_podlezhit_nadzoru(ch, d);
+}
+
+// --- Без суда не казнят ------------------------------------------------------
+
+@source(DP_F_BEZ_SUDA, DP_F_SAMOSUD)
+rule BezSudaNeKaznyat defeasible {
+    label ru official "Без суда никто да не накажется: обвиняемому казнь по умолчанию недопустима";
+    for ch: Chelovek; for d: Delo;
+    when obvinyon(ch, d);
+    then not kazn_dopustima(ch, d);
+}
+
+@source(DP_F_BEZ_SUDA)
+rule PoSuduKaznyat defeasible {
+    label ru official "Осуждение судом делает наказание допустимым";
+    for ch: Chelovek; for d: Delo;
+    when obvinyon(ch, d) and osuzhden_sudom(ch, d);
+    then kazn_dopustima(ch, d);
+}
+
+@source(DP_F_BEZ_SUDA)
+priority SudSnimaetZapret {
+    label ru official "Суд — названное исключение из общего запрета казни";
+    prefer PoSuduKaznyat over BezSudaNeKaznyat;
+    reason lex_specialis;
+}
+
+// --- Прежде казни прикажите речь говорить ----------------------------------
+
+@source(DP_F_RECH_GOVORIT)
+rule ObvinyaemogoVyslushat strict {
+    label ru official "Обвиняемый вправе быть выслушанным до наказания";
+    for ch: Chelovek; for d: Delo;
+    when obvinyon(ch, d);
+    then pravo_byt_vyslushannym(ch, d);
+}
+
+// --- Держи суд по закону ----------------------------------------------------
+
+@source(DP_F_SUD_PO_ZAKONU)
+rule SudPoZakonu strict {
+    label ru official "Рассматриваемое судом дело подлежит решению по закону";
+    for d: Delo;
+    when rassmatrivaetsya_sudom(d);
+    then delo_reshayetsya_po_zakonu(d);
+}
+
+// --- Судов не пересужать -----------------------------------------------------
+
+@source(DP_F_NE_PERESUZHAT)
+rule SudovNePeresuzhat strict {
+    label ru official "Решённое судом дело не перевершается";
+    for d: Delo;
+    when resheno_sudom(d);
+    then ne_podlezhit_peresmotru(d);
+}
+
+// --- Быть делу по третейскому ----------------------------------------------
+
+@source(DP_F_TRETEYSKIY)
+rule PoTreteyskomu strict {
+    label ru official "Переданное на третейское разрешение дело следует третейскому";
+    for d: Delo;
+    when treteyskoe_soglashenie(d);
+    then delo_podlezhit_treteyskomu(d);
+}
+
+// --- Никто сам в своем деле судьею быть не может ------------------------------
+
+@source(DP_F_NIKTO_SAM)
+rule NiktoSamSebeSudya strict {
+    label ru official "Сторона дела, поставленная по нему судьёй, подлежит отводу";
+    for ch: Chelovek; for d: Delo;
+    when storona(ch, d) and naznachen_sudyoy(ch, d);
+    then podlezhit_otvodu(ch, d);
+}
+
+// --- Истцу первое слово, ответчику последнее ---------------------------------
+
+@source(DP_F_ISTTSU_PERVOE)
+rule IsttsuPervoeSlovo strict {
+    label ru official "Истцу принадлежит первое слово";
+    for ch: Chelovek; for d: Delo;
+    when istets(ch, d);
+    then pervoe_slovo(ch, d);
+}
+
+@source(DP_F_ISTTSU_PERVOE)
+rule OtvetchikuPoslednee strict {
+    label ru official "Ответчику принадлежит последнее слово";
+    for ch: Chelovek; for d: Delo;
+    when otvetchik(ch, d);
+    then poslednee_slovo(ch, d);
+}
+
+// --- Лежачего не бьют --------------------------------------------------------
+
+@source(DP_F_LEZHACHEGO)
+rule LezhachegoNeByut strict {
+    label ru official "Участнику боя запрещено бить лежачего";
+    for boets: Chelovek; for lezh: Chelovek; for d: Delo;
+    when uchastnik_boya(boets, d) and lezhachiy(lezh, d);
+    then prohibition BitLezhachego {
+        bearer boets;
+        action udaril_lezhachego(boets, lezh, d);
+        window [@1000-01-01, infinity);
+    };
+}

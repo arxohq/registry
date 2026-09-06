@@ -1,0 +1,1160 @@
+language "law.core" version "0.2";
+package ru.dal.poslovitsy version "0.2.0";
+namespace "urn:ru:dal:clir:poslovitsy";
+
+// Сценарии перенесены из прежнего Python-раннера семейства `poslovitsy`.
+// Заголовки — прежние ID сценариев (scenario-manifest); ожидания
+// выведены из ПРЕЖНИХ проверок, а не из ответов движка.
+
+test "DP-01" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert obvinyon(entity_ref("urn:ru:dal:clir:poslovitsy#Emelyan"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert osuzhden_sudom(entity_ref("urn:ru:dal:clir:poslovitsy#Emelyan"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(kazn_dopustima(entity_ref("urn:ru:dal:clir:poslovitsy#Emelyan"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(PoSuduKaznyat);
+}
+
+test "DP-02" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert obvinyon(entity_ref("urn:ru:dal:clir:poslovitsy#Emelyan"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(kazn_dopustima(entity_ref("urn:ru:dal:clir:poslovitsy#Emelyan"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == FALSE_ONLY;
+    expect issues_within(info);
+    expect any_applied(BezSudaNeKaznyat);
+}
+
+test "DP-18" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert naznachen_sudyoy(entity_ref("urn:ru:dal:clir:poslovitsy#Morozov"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(sudya_podlezhit_nadzoru(entity_ref("urn:ru:dal:clir:poslovitsy#Morozov"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(ZaSudyoyGlyadi);
+}
+
+test "DP-19" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert obvinyon(entity_ref("urn:ru:dal:clir:poslovitsy#Emelyan"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(pravo_byt_vyslushannym(entity_ref("urn:ru:dal:clir:poslovitsy#Emelyan"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(ObvinyaemogoVyslushat);
+}
+
+test "DP-20" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert rassmatrivaetsya_sudom(entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(delo_reshayetsya_po_zakonu(entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(SudPoZakonu);
+}
+
+test "DP-03" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert resheno_sudom(entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(ne_podlezhit_peresmotru(entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(SudovNePeresuzhat);
+}
+
+test "DP-03b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert storona(entity_ref("urn:ru:dal:clir:poslovitsy#Morozov"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert naznachen_sudyoy(entity_ref("urn:ru:dal:clir:poslovitsy#Morozov"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(podlezhit_otvodu(entity_ref("urn:ru:dal:clir:poslovitsy#Morozov"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(NiktoSamSebeSudya);
+}
+
+test "DP-21" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert treteyskoe_soglashenie(entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(delo_podlezhit_treteyskomu(entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(PoTreteyskomu);
+}
+
+test "DP-15" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert istets(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(pervoe_slovo(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(IsttsuPervoeSlovo);
+}
+
+test "DP-15b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert otvetchik(entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(poslednee_slovo(entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(OtvetchikuPoslednee);
+}
+
+test "DP-16" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert uchastnik_boya(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert lezhachiy(entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate positions();
+    expect issues_within(info);
+    expect position(BitLezhachego, ACTIVE);
+    expect not position(BitLezhachego, CREATED);
+    expect not position(BitLezhachego, PENDING);
+    expect not position(BitLezhachego, SATISFIED);
+    expect not position(BitLezhachego, VIOLATED);
+    expect not position(BitLezhachego, WAIVED);
+    expect not position(BitLezhachego, SUSPENDED);
+    expect not position(BitLezhachego, TERMINATED);
+    expect not position(BitLezhachego, EXPIRED);
+    expect not position(BitLezhachego, UNDETERMINED);
+    expect not position(BitLezhachego, AVAILABLE);
+    expect not position(BitLezhachego, EXERCISED);
+    expect not position(BitLezhachego, VALIDLY_EXERCISED);
+    expect not position(BitLezhachego, INVALIDLY_EXERCISED);
+    expect not position(BitLezhachego, CONFLICTED);
+    expect not position(BitLezhachego, DEFEATED);
+}
+
+test "DP-04" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert kholop(entity_ref("urn:ru:dal:clir:poslovitsy#Grishka")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert boyarin(entity_ref("urn:ru:dal:clir:poslovitsy#Morozov")) {
+            id "assert-a1";
+            origin case_input;
+        }
+
+        assert svidetelstvuet(entity_ref("urn:ru:dal:clir:poslovitsy#Grishka"), entity_ref("urn:ru:dal:clir:poslovitsy#Morozov"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a2";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(poslukh(entity_ref("urn:ru:dal:clir:poslovitsy#Grishka"), entity_ref("urn:ru:dal:clir:poslovitsy#Morozov"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == FALSE_ONLY;
+    expect issues_within(info);
+    expect any_applied(KholopNaBoyarinaNePoslukh);
+}
+
+test "DP-04b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert kholop(entity_ref("urn:ru:dal:clir:poslovitsy#Grishka")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert kholop(entity_ref("urn:ru:dal:clir:poslovitsy#Miron")) {
+            id "assert-a1";
+            origin case_input;
+        }
+
+        assert svidetelstvuet(entity_ref("urn:ru:dal:clir:poslovitsy#Grishka"), entity_ref("urn:ru:dal:clir:poslovitsy#Miron"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a2";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(poslukh(entity_ref("urn:ru:dal:clir:poslovitsy#Grishka"), entity_ref("urn:ru:dal:clir:poslovitsy#Miron"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(KholopNaKholopaPoslukh);
+}
+
+test "DP-05a" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert v_dele(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(v_otvete(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(KtoVDeleTotVOtvete);
+}
+
+test "DP-05" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert v_dele(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert brat(entity_ref("urn:ru:dal:clir:poslovitsy#Stepan"), entity_ref("urn:ru:dal:clir:poslovitsy#Frol")) {
+            id "assert-a1";
+            origin case_input;
+        }
+
+        assert rodovaya_otvetstvennost_primenima(entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a2";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(v_otvete(entity_ref("urn:ru:dal:clir:poslovitsy#Stepan"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(BratBratuGolovoy);
+}
+
+test "DP-05b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert v_dele(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert brat(entity_ref("urn:ru:dal:clir:poslovitsy#Stepan"), entity_ref("urn:ru:dal:clir:poslovitsy#Frol")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(v_otvete(entity_ref("urn:ru:dal:clir:poslovitsy#Stepan"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == NEITHER;
+    expect issues_within(info);
+}
+
+test "DP-12" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert v_dele(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(v_otvete(entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == NEITHER;
+    expect issues_within(info);
+}
+
+test "DP-13" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert dan_uplachena(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(vtoraya_dan_nedopustima(entity_ref("urn:ru:dal:clir:poslovitsy#Frol"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(OdnoTyagloOdnaDan);
+}
+
+test "DP-06" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert podozrevaetsya(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(chist_ot_tatby(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+}
+
+test "DP-07" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert podozrevaetsya(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert poyman_s_polichnym(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(chist_ot_tatby(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == FALSE_ONLY;
+    expect issues_within(info);
+}
+
+test "DP-07b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert podozrevaetsya(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert poyman_s_polichnym(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(vor(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(PoymanVor);
+}
+
+test "DP-08" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert ugovor_zaklyuchen(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert dengi_ne_uplacheny(entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(svyazan(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == BOTH;
+    expect issues_within(info);
+}
+
+test "DP-08b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert ugovor_zaklyuchen(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert dengi_uplacheny(entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(svyazan(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(UplataPodtverzhdaetUgovor);
+}
+
+test "DP-08c" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert ugovor_zaklyuchen(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(svyazan(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(UgovorDorozheDeneg);
+}
+
+test "DP-11" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert peregovory(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(svyazan(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == NEITHER;
+    expect issues_within(info);
+}
+
+test "DP-17" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert dal_slovo(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate positions();
+    expect issues_within(info);
+    expect position(DerzhatSlovo, ACTIVE);
+    expect not position(DerzhatSlovo, CREATED);
+    expect not position(DerzhatSlovo, PENDING);
+    expect not position(DerzhatSlovo, SATISFIED);
+    expect not position(DerzhatSlovo, VIOLATED);
+    expect not position(DerzhatSlovo, WAIVED);
+    expect not position(DerzhatSlovo, SUSPENDED);
+    expect not position(DerzhatSlovo, TERMINATED);
+    expect not position(DerzhatSlovo, EXPIRED);
+    expect not position(DerzhatSlovo, UNDETERMINED);
+    expect not position(DerzhatSlovo, AVAILABLE);
+    expect not position(DerzhatSlovo, EXERCISED);
+    expect not position(DerzhatSlovo, VALIDLY_EXERCISED);
+    expect not position(DerzhatSlovo, INVALIDLY_EXERCISED);
+    expect not position(DerzhatSlovo, CONFLICTED);
+    expect not position(DerzhatSlovo, DEFEATED);
+}
+
+test "DP-17b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert dal_slovo(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert slovo_ispolneno(entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate positions();
+    expect issues_within(info);
+    expect position(DerzhatSlovo, ACTIVE);
+    expect not position(DerzhatSlovo, CREATED);
+    expect not position(DerzhatSlovo, PENDING);
+    expect not position(DerzhatSlovo, SATISFIED);
+    expect not position(DerzhatSlovo, VIOLATED);
+    expect not position(DerzhatSlovo, WAIVED);
+    expect not position(DerzhatSlovo, SUSPENDED);
+    expect not position(DerzhatSlovo, TERMINATED);
+    expect not position(DerzhatSlovo, EXPIRED);
+    expect not position(DerzhatSlovo, UNDETERMINED);
+    expect not position(DerzhatSlovo, AVAILABLE);
+    expect not position(DerzhatSlovo, EXERCISED);
+    expect not position(DerzhatSlovo, VALIDLY_EXERCISED);
+    expect not position(DerzhatSlovo, INVALIDLY_EXERCISED);
+    expect not position(DerzhatSlovo, CONFLICTED);
+    expect not position(DerzhatSlovo, DEFEATED);
+}
+
+test "DP-24" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert ogovorka_ili_obmolvka(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(falsh_po_sdelke(entity_ref("urn:ru:dal:clir:poslovitsy#Makar"), entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == FALSE_ONLY;
+    expect issues_within(info);
+    expect any_applied(OshibkaNeFalsh);
+}
+
+test "DP-25" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert uslovie_soglasovano(entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1"), entity_ref("urn:ru:dal:clir:poslovitsy#Uslovie1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(uslovie_obyazatelno(entity_ref("urn:ru:dal:clir:poslovitsy#Sdelka1"), entity_ref("urn:ru:dal:clir:poslovitsy#Uslovie1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(NaChemRyadish);
+}
+
+test "DP-09a" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert vinoven(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(podlezhit_kare(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(ZaDeloKara);
+}
+
+test "DP-09" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert vinoven(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert povinilsya(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(podlezhit_kare(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == FALSE_ONLY;
+    expect issues_within(info);
+    expect any_applied(PovinnuyuGolovuMechNeSechet);
+}
+
+test "DP-09b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert vinoven(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert kara_ponesena(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(podlezhit_kare(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == FALSE_ONLY;
+    expect issues_within(info);
+    expect any_applied(PoDvazhdyNeKarayut);
+}
+
+test "DP-26" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert vinoven(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert vina_proshchena(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(podlezhit_kare(entity_ref("urn:ru:dal:clir:poslovitsy#Kuzma"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == FALSE_ONLY;
+    expect issues_within(info);
+    expect any_applied(ProshchennayaVinaNeKaraetsya);
+}
+
+test "DP-27" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert tsar(entity_ref("urn:ru:dal:clir:poslovitsy#Morozov")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(upolnomochen_karat_i_milovat(entity_ref("urn:ru:dal:clir:poslovitsy#Morozov")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(TsaryuKaratIMilovat);
+}
+
+test "DP-10" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert vladeet(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim"), entity_ref("urn:ru:dal:clir:poslovitsy#Zemlya1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(khleb_prinadlezhit(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim"), entity_ref("urn:ru:dal:clir:poslovitsy#Zemlya1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(ChyaZemlyaTogoKhleb);
+}
+
+test "DP-10b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert prityazaet(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim"), entity_ref("urn:ru:dal:clir:poslovitsy#Zemlya1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert prityazaet(entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Zemlya1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+
+        assert krepost_staree(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim"), entity_ref("urn:ru:dal:clir:poslovitsy#Savva"), entity_ref("urn:ru:dal:clir:poslovitsy#Zemlya1")) {
+            id "assert-a2";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(perveet_v_spore(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim"), entity_ref("urn:ru:dal:clir:poslovitsy#Zemlya1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(ChemStareeTemPravee);
+}
+
+test "DP-10c" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert menshoy_syn(entity_ref("urn:ru:dal:clir:poslovitsy#Vanka"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert nasledstvo_otkrylos(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a1";
+            origin case_input;
+        }
+
+        assert krestyanskoe_domokhozyaystvo(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a2";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(nasleduet_domom(entity_ref("urn:ru:dal:clir:poslovitsy#Vanka"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(MenshoySynNaKornyu);
+}
+
+test "DP-10d" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert menshoy_syn(entity_ref("urn:ru:dal:clir:poslovitsy#Vanka"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert nasledstvo_otkrylos(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(nasleduet_domom(entity_ref("urn:ru:dal:clir:poslovitsy#Vanka"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == NEITHER;
+    expect issues_within(info);
+}
+
+test "DP-14a" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert doch(entity_ref("urn:ru:dal:clir:poslovitsy#Dunya"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert syn(entity_ref("urn:ru:dal:clir:poslovitsy#Vanka"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a1";
+            origin case_input;
+        }
+
+        assert nasledstvo_otkrylos(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a2";
+            origin case_input;
+        }
+
+        assert staryy_nasledstvennyy_obychay_primenim(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a3";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(votchinnitsa(entity_ref("urn:ru:dal:clir:poslovitsy#Dunya"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == FALSE_ONLY;
+    expect issues_within(info);
+    expect any_applied(SestryPriBratyakh);
+}
+
+test "DP-14b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert doch(entity_ref("urn:ru:dal:clir:poslovitsy#Dunya"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert syn(entity_ref("urn:ru:dal:clir:poslovitsy#Vanka"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a1";
+            origin case_input;
+        }
+
+        assert nasledstvo_otkrylos(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a2";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(votchinnitsa(entity_ref("urn:ru:dal:clir:poslovitsy#Dunya"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == NEITHER;
+    expect issues_within(info);
+}
+
+test "DP-14" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert doch(entity_ref("urn:ru:dal:clir:poslovitsy#Dunya"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert nasledstvo_otkrylos(entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(votchinnitsa(entity_ref("urn:ru:dal:clir:poslovitsy#Dunya"), entity_ref("urn:ru:dal:clir:poslovitsy#Trofim")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == NEITHER;
+    expect issues_within(info);
+}
+
+test "DP-22" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert polichnoe_obnaruzheno(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(polichnoe_pervichnoe_dokazatelstvo(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(PolichnoePervyySvidetel);
+}
+
+test "DP-22b" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert polichnoe_obnaruzheno(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert priznanie_dano(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(polichnoe_silnee_priznaniya(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(PolichnoePusheSoznaniya);
+}
+
+test "DP-23" {
+    given {
+        context {
+            decision_time @2026-08-26T12:00:00+05:00;
+            knowledge_time @2026-08-26T12:00:00+05:00;
+            legal_time @1879-06-01;
+            timezone "Asia/Qyzylorda";
+        }
+
+        assert priznanie_dano(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a0";
+            origin case_input;
+        }
+
+        assert svidetelskoe_pokazanie_dano(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")) {
+            id "assert-a1";
+            origin case_input;
+        }
+    }
+
+    evaluate truth(priznanie_silnee_svidetelstva(entity_ref("urn:ru:dal:clir:poslovitsy#Ereme"), entity_ref("urn:ru:dal:clir:poslovitsy#Delo1")));
+    expect evaluation_status == COMPUTED;
+    expect truth_status == TRUE_ONLY;
+    expect issues_within(info);
+    expect any_applied(PriznaniePacheSvidetelstva);
+}

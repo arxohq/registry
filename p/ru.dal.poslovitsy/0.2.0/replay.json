@@ -1,0 +1,183 @@
+{
+  "files": [
+    {
+      "path": "replay/tests/000.json",
+      "sha256": "48cf5cdd3465adad1474e8880a9798719018cc4b34779a298cf91e6bec149034"
+    },
+    {
+      "path": "replay/tests/001.json",
+      "sha256": "dbccd25bb25bd8ffd12ee555cd69038fb5892fa9726452d9a594f0c02d3ead89"
+    },
+    {
+      "path": "replay/tests/002.json",
+      "sha256": "a16baf7336c035c113f2a7a645558e4a47990f360e0ae2e063185475e8e673a4"
+    },
+    {
+      "path": "replay/tests/003.json",
+      "sha256": "d8c1c44823f74c4f1fec1529107c11be080e65fb10824444b5784b3e2d708cd9"
+    },
+    {
+      "path": "replay/tests/004.json",
+      "sha256": "c615d04639110159055bf7a57219254a8982b9a3f8de7f55b0d700332777ea47"
+    },
+    {
+      "path": "replay/tests/005.json",
+      "sha256": "11a8301976c41783125790e64c7ee35a413b0c9f329be9eeb606db62f3fd5bf3"
+    },
+    {
+      "path": "replay/tests/006.json",
+      "sha256": "49b41dfecb4241ef68c4ba47fa46209bfbe0bdd5d5c482a3beec4e0b1b1a9938"
+    },
+    {
+      "path": "replay/tests/007.json",
+      "sha256": "7e42d8032b37e791895f121d1fc779b0f8b5dbae476b75c65218854ac12cc6a3"
+    },
+    {
+      "path": "replay/tests/008.json",
+      "sha256": "04a4bdbbd06cef7df3891ab442602af9a5f42bc4cfc2d24d7cd7263972163810"
+    },
+    {
+      "path": "replay/tests/009.json",
+      "sha256": "7d011ce43fadd4e9a6f92236de685f807f6f2d17e077890270ac129a595f1472"
+    },
+    {
+      "path": "replay/tests/010.json",
+      "sha256": "dea5b316eebfcf309d2edd3d0301cba8d66c896bcd031528040759b2b3b6a5c3"
+    },
+    {
+      "path": "replay/tests/011.json",
+      "sha256": "4a7bc25e2d360f09d1219a31aaaabf6e6b6d59fee9d1bad4e3bb773090a21028"
+    },
+    {
+      "path": "replay/tests/012.json",
+      "sha256": "b5017f35cea311db8e2ca3a5b40c512ad85e5bc96da53906f297274557e2ca42"
+    },
+    {
+      "path": "replay/tests/013.json",
+      "sha256": "1f45bf9fbf8250ca886e17c54e57d9ec65c1c031efcfb597e37d2e6416d0f8ea"
+    },
+    {
+      "path": "replay/tests/014.json",
+      "sha256": "66c634b6522172634c7423f7b538916ae72ec3879cea643500b0014e0fa6c6af"
+    },
+    {
+      "path": "replay/tests/015.json",
+      "sha256": "df68ef95f2cc857d18f40b29408bcb6e9f5a333d3f7ba854de17f55c03885899"
+    },
+    {
+      "path": "replay/tests/016.json",
+      "sha256": "81253140da19f823734e1c4f97248dbe7c59beaac6e7ed0472fbdd4cc9232053"
+    },
+    {
+      "path": "replay/tests/017.json",
+      "sha256": "eedf6b9d65c29c138a8d0d9e7e084ede8038e923c2225a1a994deb42a24f6096"
+    },
+    {
+      "path": "replay/tests/018.json",
+      "sha256": "42a01baee7866a9b8c8c0640cf00c36b5201d8804c98e11761fa406f85cb9356"
+    },
+    {
+      "path": "replay/world.lawir.json",
+      "sha256": "bbd1099610a5f3ff74799eed1fc5c34a6b60595173baeb06cc524a232d229cbc"
+    }
+  ],
+  "format": "law.package-replay/0.1",
+  "program": "replay/world.lawir.json",
+  "suites": [
+    {
+      "path": "replay/tests/000.json",
+      "source": "tests/01-osuzhdyonnomu-kazn-dopustima.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/001.json",
+      "source": "tests/02-bez-suda-kazn-nedopustima.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/002.json",
+      "source": "tests/03-kholop-na-boyarina-ne-poslukh.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/003.json",
+      "source": "tests/04-kholop-na-kholopa-poslukh.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/004.json",
+      "source": "tests/05-brat-bratu-golovoy.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/005.json",
+      "source": "tests/06-ne-poyman-ne-vor.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/006.json",
+      "source": "tests/07-poyman-prezumptsiya-oprokinuta.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/007.json",
+      "source": "tests/08-ugovor-bez-deneg-both.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/008.json",
+      "source": "tests/09-povinnuyu-golovu-mech-ne-sechet.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/009.json",
+      "source": "tests/10-menshoy-syn-na-kornyu.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/010.json",
+      "source": "tests/11-isttsu-pervoe-slovo.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/011.json",
+      "source": "tests/12-otvetchiku-poslednee-slovo.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/012.json",
+      "source": "tests/13-lezhachego-ne-byut.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/013.json",
+      "source": "tests/14-chuzhoe-ispolnenie-ne-derzhit-slovo.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/014.json",
+      "source": "tests/15-rodovaya-otvetstvennost-bez-starogo-obychaya.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/015.json",
+      "source": "tests/16-menshoy-syn-vne-krestyanskogo-hozyaystva.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/016.json",
+      "source": "tests/17-neizvestnost-oplaty-ne-neuplata.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/017.json",
+      "source": "tests/18-proshchennaya-vina-ne-karaetsya.lawtest",
+      "tests": 1
+    },
+    {
+      "path": "replay/tests/018.json",
+      "source": "tests/poslovitsy.lawtest",
+      "tests": 44
+    }
+  ]
+}
